@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "discord.js": "^13.1.0"
+  },
+  "name": "ava",
+  "version": "1.0.0",
+  "description": "OSS Ava discord bot",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/circa10a/ava.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/circa10a/ava/issues"
+  },
+  "homepage": "https://github.com/circa10a/ava#readme",
+  "engines": {
+    "node": ">=16.6.0",
+    "npm": ">=7.0.0"
+  }
+}
