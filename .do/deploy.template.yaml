@@ -6,6 +6,9 @@ spec:
       github:
         repo: circa10a/ava
         branch: main
+      http_port: 8080
+      health_check:
+        http_path: /
       envs:
         - key: AVA_DISCORD_TOKEN
           value: CHANGE_ME

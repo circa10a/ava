@@ -2,13 +2,13 @@ const { avaPrefix } = require('../config/config');
 
 const command = 'mock';
 
-function mockText(str) {
+const mockText = (str) => {
   let newStr = '';
   str.split('').forEach((el, idx) => {
     newStr += idx % 2 === 0 ? el.toLowerCase() : el.toUpperCase();
   });
   return newStr;
-}
+};
 
 module.exports = {
   commandName: command,
@@ -21,7 +21,7 @@ module.exports = {
     }
     const args = message.content.trim().split(/ +/g);
     const userCmd = args[1];
-    const userArg = args[2];
+    const userArg = args.slice(2, args.length).join(' ');
 
     if (userCmd === command) {
       message.reply(mockText(userArg));

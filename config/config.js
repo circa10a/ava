@@ -1,4 +1,5 @@
 module.exports = {
   avaPrefix: 'ava',
-  commandsDir: 'commands'
+  commandsDir: 'commands',
+  port: process.env.PORT || 8080
 };
