@@ -33,7 +33,10 @@ client.login(process.env.AVA_DISCORD_TOKEN);
 
 // Add a bullshit routes so digitalocean keeps the thing running
 fastify.get('/', async(req, res) => {
-  return res.code(200).send({ status: 'OK' });
+  return res.code(200).send(
+    {
+      status: 'ok',
+    });
 });
 
 const start = async () => {

@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const { avaPrefix } = require('../config/config');
 
 const command = 'http';
@@ -17,17 +18,15 @@ module.exports = {
     const endpoint = args[3];
 
     if (userCmd === command) {
-      const response = await fetch(url, {
-        method: httpMethod,
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      });
-      jsonResponse = await response.json();
-      message.channel.send({
-        code: 'json',
-        content: JSON.stringify(jsonResponse, null, 4)
-      });
+      try {
+        const response = await fetch(endpoint, {
+          method: httpMethod,
+        });
+        jsonResponse = await response.json();
+        message.channel.send(`\`\`\`json\n${JSON.stringify(jsonResponse, null, 4)}\`\`\``);
+      } catch(e) {
+        message.channel.send(`\`\`\`log\n${e}\`\`\``);
+      }
     };
   }
 };
