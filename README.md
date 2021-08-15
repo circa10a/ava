@@ -23,6 +23,8 @@ npm start
 
 - `list` - `ava list` lists available commands in the `events` directory.
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.
+- `take-me-home` - `ava take-me-home` sings the John Denver classic.
+- `whiteclaw` - `ava whiteclaw` does the needful.
 
 ## Docker
 
