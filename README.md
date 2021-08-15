@@ -22,10 +22,12 @@ npm start
 ## Commands
 
 - `gcp` - `ava gcp` tells the truth.
+- `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
 - `list` - `ava list` lists available commands in the `events` directory.
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.
 - `take-me-home` - `ava take-me-home` sings the John Denver classic.
 - `whiteclaw` - `ava whiteclaw` does the needful.
+- `yeet` - `ava yeet` sends an awesome yeet pic.
 
 ## Docker
 

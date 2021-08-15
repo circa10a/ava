@@ -18,5 +18,8 @@
             2,
             "always"
         ]
-    }
+    },
+    "globals": {
+        "fetch": false
+      }
 }

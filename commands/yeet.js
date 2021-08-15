@@ -12,9 +12,9 @@ module.exports = {
     }
     const args = message.content.trim().split(/ +/g);
     const userCmd = args[1];
-    
+
     if (userCmd == command) {
-      message.reply("https://i.kym-cdn.com/entries/icons/original/000/031/544/cover13.jpg");
+      message.reply('https://i.kym-cdn.com/entries/icons/original/000/031/544/cover13.jpg');
     }
   },
 };
