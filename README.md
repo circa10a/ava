@@ -27,6 +27,7 @@ npm start
 - `gcp` - `ava gcp` tells the truth.
 - `help` - `ava help` provides a link for these docs.
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
+- `insult` - `ava insult @user#1234` will tag the receiving user and insult them with a random phrase.
 - `list` - `ava list` lists available commands in the `events` directory.
 - `meme` - `ava meme` give random meme from reddit.
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.

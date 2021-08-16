@@ -24,6 +24,10 @@ module.exports = {
     const userArg = args.slice(2, args.length).join(' ');
 
     if (userCmd === command) {
+      if (!userArg) {
+        message.reply('Nothing to mock');
+        return;
+      }
       message.reply(mockText(userArg));
     }
   },

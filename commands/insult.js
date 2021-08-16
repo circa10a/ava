@@ -1,7 +1,8 @@
 const fetch = require('node-fetch');
 const { avaPrefix } = require('../config/config');
 
-const command = 'http';
+const command = 'insult';
+const insultEndpoint = 'https://evilinsult.com/generate_insult.php?lang=en&type=json';
 
 module.exports = {
   commandName: command,
@@ -14,28 +15,22 @@ module.exports = {
     }
     const args = message.content.trim().split(/ +/g);
     const userCmd = args[1];
-    const httpMethod = args[2];
-    const endpoint = args[3];
-    const contentType = args[4] || 'application/json';
+    const userToInsult = args[2];
 
     if (userCmd === command) {
-      if (!httpMethod) {
-        message.reply('No http method provided');
-        return;
-      }
-      if (!endpoint || !endpoint.startsWith('http://') || !endpoint.startsWith('https://')) {
-        message.reply('No valid http endpoint provided');
+      if (!userToInsult || !userToInsult.startsWith('@')) {
+        message.reply('No user to insult provided');
         return;
       }
       try {
-        const response = await fetch(endpoint, {
-          method: httpMethod,
+        const response = await fetch(insultEndpoint, {
+          method: 'get',
           headers: {
-            'Accept': contentType,
+            'Accept': 'application/json',
           }
         });
         jsonResponse = await response.json();
-        message.channel.send(`\`\`\`json\n${JSON.stringify(jsonResponse, null, 4)}\`\`\``);
+        message.channel.send(`@${userToInsult} ${jsonResponse.insult}`);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e}\`\`\``);
       }
