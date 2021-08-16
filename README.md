@@ -23,6 +23,7 @@ npm start
 
 - `bored` - `ava bored` gives you a random activity to do.
 - `catfact` - `ava catfact` gives random fact about cats.
+- `compliment` - `ava compliment @user1234` will tag the receiving users and deliver a random kind compliment.
 - `dadjoke` - `ava dadjoke` gives random dad joke.
 - `gcp` - `ava gcp` tells the truth.
 - `help` - `ava help` provides a link for these docs.
