@@ -23,7 +23,7 @@ module.exports = {
         message.reply('No http method provided');
         return;
       }
-      if (!endpoint || !endpoint.startsWith('http://') || !endpoint.startsWith('https://')) {
+      if (!endpoint) {
         message.reply('No valid http endpoint provided');
         return;
       }

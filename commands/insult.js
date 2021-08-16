@@ -18,7 +18,7 @@ module.exports = {
     const userToInsult = args[2];
 
     if (userCmd === command) {
-      if (!userToInsult || !userToInsult.startsWith('@')) {
+      if (!userToInsult) {
         message.reply('No user to insult provided');
         return;
       }
