@@ -21,8 +21,11 @@ npm start
 
 ## Commands
 
+- `bored` - `ava bored` gives you a random activity to do.
 - `catfact` - `ava catfact` gives random fact about cats.
+- `dadjoke` - `ava dadjoke` gives random dad joke.
 - `gcp` - `ava gcp` tells the truth.
+- `help` - `ava help` provides a link for these docs.
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
 - `list` - `ava list` lists available commands in the `events` directory.
 - `meme` - `ava meme` give random meme from reddit.

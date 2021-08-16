@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
 const { avaPrefix } = require('../config/config');
 
-const command = 'meme';
-const randomMemeEndpoint = 'https://meme-api.herokuapp.com/gimme';
+const command = 'dadjoke';
+const dadJokeEndpoint = 'https://icanhazdadjoke.com/';
 
 module.exports = {
   commandName: command,
@@ -18,14 +18,14 @@ module.exports = {
 
     if (userCmd === command) {
       try {
-        const response = await fetch(randomMemeEndpoint, {
+        const response = await fetch(dadJokeEndpoint, {
           method: 'get',
           headers: {
             'Accept': 'application/json',
           }
         });
         jsonResponse = await response.json();
-        message.reply(jsonResponse.url);
+        message.reply(jsonResponse.joke);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e}\`\`\``);
       }

@@ -19,13 +19,13 @@ module.exports = {
     if (userCmd === command) {
       try {
         const response = await fetch(catFactEndpoint, {
-          method: httpMethod,
+          method: 'get',
           headers: {
             'Accept': 'application/json',
           }
         });
         jsonResponse = await response.json();
-        message.channel.send(json.fact);
+        message.reply(jsonResponse.fact);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e}\`\`\``);
       }
