@@ -13,3 +13,6 @@ spec:
         - key: AVA_DISCORD_TOKEN
           value: CHANGE_ME
           type: SECRET
+        - key: ENABLE_LISTENER
+          scope: RUN_TIME
+          value: true
