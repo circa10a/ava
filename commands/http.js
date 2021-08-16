@@ -16,11 +16,15 @@ module.exports = {
     const userCmd = args[1];
     const httpMethod = args[2];
     const endpoint = args[3];
+    const contentType = args[4] || 'application/json';
 
     if (userCmd === command) {
       try {
         const response = await fetch(endpoint, {
           method: httpMethod,
+          headers: {
+            'Content-Type': contentType,
+          }
         });
         jsonResponse = await response.json();
         message.channel.send(`\`\`\`json\n${JSON.stringify(jsonResponse, null, 4)}\`\`\``);
