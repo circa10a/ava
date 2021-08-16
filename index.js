@@ -1,7 +1,10 @@
+const { exec } = require('child_process');
 const { Client, Intents } = require('discord.js');
 const fastify = require('fastify')({ logger: true });
 const fs = require('fs');
+const config = require('./config/config');
 const { commandsDir, port, enableHTTPListener } = require('./config/config');
+const selfPingJob = require('./utils/selfPing');
 
 const { AVA_DISCORD_TOKEN } = process.env;
 
@@ -41,7 +44,6 @@ if (enableHTTPListener) {
       });
   });
 
-
   const start = async () => {
     try {
       await fastify.listen(port, '0.0.0.0');
@@ -51,5 +53,9 @@ if (enableHTTPListener) {
     }
   };
 
+  // Self ping job needed for heroku
+  if (process.env.AVA_HEROKU_APP_NAME){
+    selfPingJob();
+  }
   start();
 }

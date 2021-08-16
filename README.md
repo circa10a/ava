@@ -1,7 +1,7 @@
 # ava
 
 [![alt text](https://img.shields.io/badge/Invite%20To-Discord%20-blue)](https://discord.com/api/oauth2/authorize?client_id=876487225716662302&permissions=34359863296&scope=bot)
-![Build Status](https://github.com/circa10a/ava/workflows/build-docker-images/badge.svg)
+![Build Status](https://github.com/circa10a/ava/workflows/deploy/badge.svg)
 
 A discord implementation of the famous ava bot
 
@@ -18,6 +18,16 @@ export AVA_DISCORD_TOKEN=<token>
 npm i
 npm start
 ```
+
+## Config
+
+|                       |          |         |
+|-----------------------|----------|---------|
+| Environment Variable  | Required | Default |
+| `AVA_DISCORD_TOKEN`   | Yes      | `""`    |
+| `AVA_ENABLE_LISTENER` | No       | `false` |
+| `AVA_HEROKU_APP_NAME` | No       | `""`    |
+| `PORT`                | No       | `8080`  |
 
 ## Commands
 
