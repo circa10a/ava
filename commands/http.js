@@ -23,7 +23,7 @@ module.exports = {
         const response = await fetch(endpoint, {
           method: httpMethod,
           headers: {
-            'Content-Type': contentType,
+            'Accept': contentType,
           }
         });
         jsonResponse = await response.json();
