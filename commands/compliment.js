@@ -18,7 +18,7 @@ module.exports = {
     const userToCompliment = args[2];
 
     if (userCmd === command) {
-      if (!userToCompliment || !userToCompliment.startsWith('@')) {
+      if (!userToCompliment) {
         message.reply('No user to compliment provided');
         return;
       }
