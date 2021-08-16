@@ -2,3 +2,5 @@ node_modules
 .eslintrc.json
 .gitignore
 *.md
+.github
+.do

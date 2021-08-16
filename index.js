@@ -1,7 +1,10 @@
+const { exec } = require('child_process');
 const { Client, Intents } = require('discord.js');
 const fastify = require('fastify')({ logger: true });
 const fs = require('fs');
-const { commandsDir, port } = require('./config/config');
+const config = require('./config/config');
+const { commandsDir, port, enableHTTPListener } = require('./config/config');
+const selfPingJob = require('./utils/selfPing');
 
 const { AVA_DISCORD_TOKEN } = process.env;
 
@@ -15,6 +18,7 @@ const client = new Client({ intents: [
   Intents.FLAGS.GUILD_MESSAGES
 ]});
 
+client.setMaxListeners(0);
 client.once('ready', () => {
   console.log('[INFO] Ready!');
 });
@@ -31,21 +35,27 @@ for (const file of eventFiles) {
 
 client.login(process.env.AVA_DISCORD_TOKEN);
 
-// Add a bullshit routes so digitalocean keeps the thing running
-fastify.get('/', async(req, res) => {
-  return res.code(200).send(
-    {
-      status: 'ok',
-    });
-});
+// Add a bullshit route so cloud provider keeps the thing running due to health checks
+if (enableHTTPListener) {
+  fastify.get('/', async(req, res) => {
+    return res.code(200).send(
+      {
+        status: 'ok',
+      });
+  });
 
-const start = async () => {
-  try {
-    await fastify.listen(port, '0.0.0.0');
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
+  const start = async () => {
+    try {
+      await fastify.listen(port, '0.0.0.0');
+    } catch (err) {
+      fastify.log.error(err);
+      process.exit(1);
+    }
+  };
+
+  // Self ping job needed for heroku
+  if (process.env.AVA_HEROKU_APP_NAME){
+    selfPingJob();
   }
-};
-
-start();
+  start();
+}

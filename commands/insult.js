@@ -15,11 +15,11 @@ module.exports = {
     }
     const args = message.content.trim().split(/ +/g);
     const userCmd = args[1];
-    const userToInsult = args[2];
+    const thingToInsult = args.slice(2, args.length).join(' ');
 
     if (userCmd === command) {
-      if (!userToInsult) {
-        message.reply('No user to insult provided');
+      if (!thingToInsult) {
+        message.reply('Nothing to insult');
         return;
       }
       try {
@@ -30,7 +30,7 @@ module.exports = {
           }
         });
         jsonResponse = await response.json();
-        message.channel.send(`${userToInsult} ${jsonResponse.insult}`);
+        message.channel.send(`${thingToInsult} ${jsonResponse.insult}`);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e}\`\`\``);
       }
