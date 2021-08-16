@@ -30,7 +30,7 @@ module.exports = {
           }
         });
         jsonResponse = await response.json();
-        message.channel.send(`${userToInsult} ${jsonResponse.insult}`);
+        message.channel.send(`${thingToInsult} ${jsonResponse.insult}`);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e}\`\`\``);
       }
