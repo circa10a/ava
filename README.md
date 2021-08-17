@@ -51,3 +51,7 @@ npm start
 ```bash
 docker run -e AVA_DISCORD_TOKEN="<token>" circa10a/ava
 ```
+
+## Contribution
+
+We welcome all contributions! Please visit the [contribution documentation](docs/CONTRIBUTION.md) to get started.
