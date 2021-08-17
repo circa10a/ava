@@ -35,6 +35,7 @@ npm start
 - `catfact` - `ava catfact` gives random fact about cats.
 - `compliment` - `ava compliment @user1234` will tag the receiving users and deliver a random kind compliment.
 - `dadjoke` - `ava dadjoke` gives random dad joke.
+- `florida-man` - `ava florida-man` gives you back a random reddit post title from `/r/FloridaMan`.
 - `gcp` - `ava gcp` tells the truth.
 - `help` - `ava help` provides a link for these docs.
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
