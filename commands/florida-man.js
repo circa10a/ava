@@ -22,12 +22,12 @@ module.exports = {
         message.reply('ava is misconfigured for reddit integration. Check environment variables');
         return;
       }
-      try{
+      try {
         const r = new Snoowrap({...reddit});
         randomSubmission = await r.getSubreddit(subreddit).getRandomSubmission();
         message.reply(randomSubmission.title);
       } catch(e) {
-        message.reply(e);
+        message.reply('error getting data from reddit');
       }
     }
   },
