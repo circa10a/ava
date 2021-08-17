@@ -36,7 +36,6 @@ npm start
 - `compliment` - `ava compliment @user1234` will tag the receiving users and deliver a random kind compliment.
 - `dadjoke` - `ava dadjoke` gives random dad joke.
 - `gcp` - `ava gcp` tells the truth.
-- `gif` - `ava gif something` searches for gifs via giphy integration in discord.
 - `help` - `ava help` provides a link for these docs.
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
 - `insult` - `ava insult @user#1234` will tag the receiving user and insult them with a random phrase.
