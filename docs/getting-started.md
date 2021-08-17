@@ -1,4 +1,5 @@
 # Local Development Guide
+
 This guide will help you get started with local development.
 
 In this guide, you will start a local server instance of Ava, create a Discord test bot, lastly, test Ava commands through the test bot in a test channel. 
@@ -26,14 +27,14 @@ The bot also needs the following permissions.
 
 To invite Ava to a Discord test channel, use the generated URL. Add the generated URL to your browser search bar and visit the URL.
 
-![](../public/images/bot_invite_link.png)
-
+![Bot invite view](../public/images/bot_invite_link.png)
 
 The next page will take you to the bot channel invite page. Go ahead and select your Discord channel of where you want to test the bot.
 
 ![View of Discord invite modal with channel prompt](../public/images/add_bot_channel.png)
 
 ## Bot Token
+
 The bot token can be found on your test application's bot page. You will need the token value for the next step.
 
 ![bot token view](../public/images/bot_token_step.png)
@@ -66,7 +67,7 @@ You should see a message when the server is up and running.
 
 ### Non-Docker
 
-Ava can run locally as a nodejs process. To start Ava as a node.js process, issue the command into your terminal. You may have to issue `npm install` prior to starting the server if you have not done so prior..
+Ava can run locally as a node.js process. To start Ava as a node.js process, issue the command into your terminal. You may have to issue `npm install` prior to starting the server if you have not done so prior.
 
 **NOTE:** The command must be issued in the project root.
 
@@ -86,10 +87,10 @@ You should see a message when the server is up and running.
 
 Go vist your Discord test channel to verify the test bot is operational.
 
-Go ahead and issue the `ava list` command in the channel. If everything is working correctly, you should see an output containing all the available Ava commands.
+Go ahead and issue the `ava list` command in the channel. If everything is working correctly, you should see a reply containing all the available Ava commands.
 
 ![ava returns commands](../public/images/ava_validate.png)
 
 ## Closing
 
-If Ava returned all the commands then congratulations. You now have local test server, and an ava test bot to verify new commands.
+If Ava returned all the commands then congratulations. You now have a local test server, and an ava test bot to verify new commands.
