@@ -1,8 +1,6 @@
-const { exec } = require('child_process');
 const { Client, Intents } = require('discord.js');
 const fastify = require('fastify')({ logger: true });
 const fs = require('fs');
-const config = require('./config/config');
 const { commandsDir, port, enableHTTPListener } = require('./config/config');
 const selfPingJob = require('./utils/selfPing');
 
