@@ -5,6 +5,7 @@
     "node-fetch": "^2.6.1",
     "node-schedule": "^2.0.0",
     "snoowrap": "^1.23.0",
+    "unofficial-amazon-search": "^2.0.7",
     "wikijs": "^6.3.2",
     "winston": "^3.3.3"
   },

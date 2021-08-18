@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
-const { avaPrefix, commandsDir } = require('../config/config');
+const { avaPrefix, commandsDir, embedColor } = require('../config/config');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -22,7 +22,7 @@ module.exports = {
 
     if (userCmd === command) {
       const embed = new MessageEmbed()
-        .setColor('#0099ff')
+        .setColor(embedColor)
         .setTitle('Available Commands')
         .setURL('https://github.com/circa10a/ava')
         .setDescription(availableCommands.join('\n'))

@@ -10,6 +10,7 @@ module.exports = {
   endpoint: `https://${AVA_HEROKU_APP_NAME}.herokuapp.com/`,
   port: PORT || 8080,
   enableHTTPListener: AVA_ENABLE_LISTENER || false,
+  embedColor: '#0099ff',
   reddit: {
     userAgent: 'ava-discord-bot',
     clientId: AVA_REDDIT_CLIENT_ID,

@@ -1,6 +1,5 @@
-const wiki = require('wikijs').default;
 const { MessageEmbed } = require('discord.js');
-const { randomItemFromArray } = require('../lib/utils/utils');
+const { searchAmazon } = require('unofficial-amazon-search');
 const { avaPrefix, embedColor } = require('../config/config');
 
 const path = require('path');
@@ -18,22 +17,19 @@ module.exports = {
     }
     const args = message.content.trim().split(/ +/g);
     const userCmd = args[1];
+    const thingToSearch = args.slice(2, args.length).join(' ');
 
     if (userCmd === command) {
       try {
-        const coffeeBrands = await wiki().pagesInCategory('Category:Coffee_brands');
-        const randomBrand = randomItemFromArray(coffeeBrands);
-        const wikiPage = await wiki().page(randomBrand);
-        const wikiPageUrl = wikiPage.fullurl;
-        const brandTitle = wikiPage.title;
-        const [pageImage, summary] = await Promise.all([wikiPage.pageImage(), wikiPage.summary()]);
-
+        const data = await searchAmazon(thingToSearch);
+        const { rating, prices, title, imageUrl, productUrl } = data.searchResults[0];
         const embed = new MessageEmbed()
           .setColor(embedColor)
-          .setTitle(brandTitle)
-          .setURL(wikiPageUrl)
-          .setDescription(summary)
-          .setThumbnail(pageImage);
+          .setTitle(title)
+          .setURL(`https://amazon.com${productUrl}`)
+          .setDescription(`${rating.score}/${rating.outOf} stars\n$${prices[0].price}`)
+          .setThumbnail('https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png')
+          .setImage(imageUrl);
         message.channel.send({ embeds: [embed] });
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
