@@ -41,10 +41,9 @@ npm start
 - `dadjoke` - `ava dadjoke` gives random dad joke.
 - `florida-man` - `ava florida-man` gives you back a random reddit post title from `/r/FloridaMan`.
 - `gcp` - `ava gcp` tells the truth.
-- `help` - `ava help` provides a link for these docs.
+- `help` - `ava help` provides a link for these docs and available commands in the `commands` directory.
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
 - `insult` - `ava insult @user#1234` will tag the receiving user and insult them with a random phrase.
-- `list` - `ava list` lists available commands in the `events` directory.
 - `meme` - `ava meme` give random meme from reddit.
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.
 - `take-me-home` - `ava take-me-home` sings the John Denver classic.
