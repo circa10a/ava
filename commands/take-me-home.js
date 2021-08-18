@@ -1,5 +1,5 @@
 const { avaPrefix } = require('../config/config');
-const { sleep } = require('../utils/utils');
+const { sleep } = require('../lib/utils/utils');
 
 const command = 'take-me-home';
 const wait = 2000;

@@ -1,6 +1,8 @@
 const Snoowrap = require('snoowrap');
 
 const { avaPrefix, reddit } = require('../config/config');
+const { validateRedditCreds } = require('../lib/validations/reddit/creds');
+const logger = require('../lib/logger/logger');
 
 const command = 'florida-man';
 const subreddit = 'FloridaMan';
@@ -18,15 +20,20 @@ module.exports = {
     const userCmd = args[1];
 
     if (userCmd === command) {
-      if (Object.values(reddit).some(el => el == null)) {
-        message.reply('ava is misconfigured for reddit integration. Check environment variables');
+      // Check env vars are set
+      try {
+        validateRedditCreds();
+      } catch(e) {
+        message.reply(e.toString());
         return;
       }
+      // Try to get data from reddit
       try {
         const r = new Snoowrap({...reddit});
         randomSubmission = await r.getSubreddit(subreddit).getRandomSubmission();
         message.reply(randomSubmission.title);
       } catch(e) {
+        logger.error(e);
         message.reply('error getting data from reddit');
       }
     }

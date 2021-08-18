@@ -4,7 +4,8 @@
     "fastify": "^3.20.2",
     "node-fetch": "^2.6.1",
     "node-schedule": "^2.0.0",
-    "snoowrap": "^1.23.0"
+    "snoowrap": "^1.23.0",
+    "winston": "^3.3.3"
   },
   "name": "ava",
   "version": "1.0.0",

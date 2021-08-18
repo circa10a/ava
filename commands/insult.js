@@ -32,7 +32,7 @@ module.exports = {
         jsonResponse = await response.json();
         message.channel.send(`${thingToInsult} ${jsonResponse.insult}`);
       } catch(e) {
-        message.channel.send(`\`\`\`log\n${e}\`\`\``);
+        message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
     };
   }

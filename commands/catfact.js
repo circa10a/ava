@@ -27,7 +27,7 @@ module.exports = {
         jsonResponse = await response.json();
         message.reply(jsonResponse.fact);
       } catch(e) {
-        message.channel.send(`\`\`\`log\n${e}\`\`\``);
+        message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
     };
   }

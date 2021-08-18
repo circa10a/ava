@@ -1,13 +1,14 @@
 const { Client, Intents } = require('discord.js');
-const fastify = require('fastify')({ logger: true });
+const logger = require('./lib/logger/logger');
+const fastify = require('fastify')();
 const fs = require('fs');
 const { commandsDir, port, enableHTTPListener } = require('./config/config');
-const selfPingJob = require('./utils/selfPing');
+const selfPingJob = require('./lib/jobs/selfPing');
 
 const { AVA_DISCORD_TOKEN } = process.env;
 
 if (!AVA_DISCORD_TOKEN) {
-  console.error('[ERROR] Missing AVA_DISCORD_TOKEN environment variable');
+  logger.error('Missing AVA_DISCORD_TOKEN environment variable');
   process.exit(1);
 }
 
@@ -18,7 +19,7 @@ const client = new Client({ intents: [
 
 client.setMaxListeners(0);
 client.once('ready', () => {
-  console.log('[INFO] Ready!');
+  logger.info('Ready!');
 });
 
 const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js'));
@@ -46,7 +47,7 @@ if (enableHTTPListener) {
     try {
       await fastify.listen(port, '0.0.0.0');
     } catch (err) {
-      fastify.log.error(err);
+      logger.error(err);
       process.exit(1);
     }
   };

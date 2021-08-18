@@ -1,6 +1,7 @@
 const { avaPrefix } = require('../config/config');
 
 const command = 'yeet';
+const yeetImage = 'https://i.kym-cdn.com/entries/icons/original/000/031/544/cover13.jpg';
 
 module.exports = {
   commandName: command,
@@ -14,7 +15,7 @@ module.exports = {
     const userCmd = args[1];
 
     if (userCmd == command) {
-      message.reply('https://i.kym-cdn.com/entries/icons/original/000/031/544/cover13.jpg');
+      message.reply(yeetImage);
     }
   },
 };
