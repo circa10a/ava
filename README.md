@@ -37,6 +37,7 @@ npm start
 
 - `bored` - `ava bored` gives you a random activity to do.
 - `catfact` - `ava catfact` gives random fact about cats.
+- `coffee` - `ava coffee` gives you a random brand of coffee from wikipedia to try.
 - `compliment` - `ava compliment @user1234` will tag the receiving users and deliver a random kind compliment.
 - `dadjoke` - `ava dadjoke` gives random dad joke.
 - `floridaman` - `ava floridaman` gives you back a random reddit post title from `/r/FloridaMan`.
