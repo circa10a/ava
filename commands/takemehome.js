@@ -1,7 +1,7 @@
 const { avaPrefix } = require('../config/config');
 const { sleep } = require('../lib/utils/utils');
 
-const command = 'take-me-home';
+const command = 'takemehome';
 const wait = 2000;
 
 module.exports = {

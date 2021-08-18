@@ -2,7 +2,9 @@ const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
 const { avaPrefix, commandsDir } = require('../config/config');
 
-const command = 'help';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 
 module.exports = {
   commandName: command,

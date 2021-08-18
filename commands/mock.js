@@ -1,6 +1,8 @@
 const { avaPrefix } = require('../config/config');
 
-const command = 'mock';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 
 const mockText = (str) => {
   let newStr = '';

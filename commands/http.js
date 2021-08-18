@@ -1,7 +1,9 @@
 const fetch = require('node-fetch');
 const { avaPrefix } = require('../config/config');
 
-const command = 'http';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 
 module.exports = {
   commandName: command,

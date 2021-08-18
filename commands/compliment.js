@@ -1,7 +1,9 @@
 const fetch = require('node-fetch');
 const { avaPrefix } = require('../config/config');
 
-const command = 'compliment';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 const complimentEndpoint = 'https://complimentr.com/api';
 
 module.exports = {

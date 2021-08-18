@@ -1,7 +1,9 @@
 const fetch = require('node-fetch');
 const { avaPrefix } = require('../config/config');
 
-const command = 'insult';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 const insultEndpoint = 'https://evilinsult.com/generate_insult.php?lang=en&type=json';
 
 module.exports = {

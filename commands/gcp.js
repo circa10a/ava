@@ -1,6 +1,8 @@
 const { avaPrefix } = require('../config/config');
 
-const command = 'gcp';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 
 module.exports = {
   commandName: command,

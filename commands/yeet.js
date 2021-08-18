@@ -1,6 +1,8 @@
 const { avaPrefix } = require('../config/config');
 
-const command = 'yeet';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 const yeetImage = 'https://i.kym-cdn.com/entries/icons/original/000/031/544/cover13.jpg';
 
 module.exports = {

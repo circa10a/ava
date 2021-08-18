@@ -4,7 +4,9 @@ const { avaPrefix, reddit } = require('../config/config');
 const { validateRedditCreds } = require('../lib/validations/reddit/creds');
 const logger = require('../lib/logger/logger');
 
-const command = 'florida-man';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 const subreddit = 'FloridaMan';
 
 module.exports = {
