@@ -1,7 +1,9 @@
 const { avaPrefix } = require('../config/config');
 const { sleep } = require('../lib/utils/utils');
 
-const command = 'takemehome';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 const wait = 2000;
 
 module.exports = {
@@ -10,7 +12,7 @@ module.exports = {
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
-    if (!message.content.startsWith(avaPrefix)){
+    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);

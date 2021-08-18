@@ -14,7 +14,7 @@ module.exports = {
     const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js'));
     const availableCommands = eventFiles.map(event => event.replace('.js', ''));
     // Ensure message is intended for ava
-    if (!message.content.startsWith(avaPrefix)){
+    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);

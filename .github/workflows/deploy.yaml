@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  push-image-to-heroku:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

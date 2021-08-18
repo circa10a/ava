@@ -10,7 +10,7 @@ module.exports = {
   once: false,
   execute(message) {
     // Ensure message is intended for ava
-    if (!message.content.startsWith(avaPrefix)){
+    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);
