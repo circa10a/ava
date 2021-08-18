@@ -35,6 +35,7 @@ npm start
 
 ## Commands
 
+- `amazon` - `ava amazon something something` searches for things on amazon.
 - `bored` - `ava bored` gives you a random activity to do.
 - `catfact` - `ava catfact` gives random fact about cats.
 - `coffee` - `ava coffee` gives you a random brand of coffee from wikipedia to try.
