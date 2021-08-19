@@ -40,7 +40,7 @@ npm start
 - `catfact` - `ava catfact` gives random fact about cats.
 - `coffee` - `ava coffee` gives you a random brand of coffee from wikipedia to try.
 - `compliment` - `ava compliment @user1234` will tag the receiving users and deliver a random kind compliment.
-- `crypto` - `ava crypto <currencyName>` will return the latest price of the provided crypto currency.
+- `crypto` - `ava crypto <currencyName>` will return the latest price of the provided cryptocurrency.
 - `dadjoke` - `ava dadjoke` gives random dad joke.
 - `floridaman` - `ava floridaman` gives you back a random reddit post title from `/r/FloridaMan`.
 - `gcp` - `ava gcp` tells the truth.

@@ -21,7 +21,7 @@ module.exports = {
 
   if (userCmd === command) {
     if (!cryptoSymbol) {
-        message.reply('Please provide a valid crypto symbol. \nSee => https://coinmarketcap.com/all/views/all/');
+        message.reply('Please provide a valid cryptocurrency symbol. \nSee => https://coinmarketcap.com/all/views/all/');
       return;
     }
     try {
@@ -36,7 +36,7 @@ module.exports = {
       message.channel.send(`The current rate of ${cryptoSymbol} is $${price.toFixed(2)} 💸`);
     } catch(e) {
         if (jsonResponse.data?.priceUsd === undefined) {
-            message.channel.send(`\`\`\`log\nInvalid crypto provided. Please ensure you provide the full name of the crypto currency.\nSee => https://coinmarketcap.com/all/views/all/\`\`\``);
+            message.channel.send(`\`\`\`log\nInvalid cryptocurrency provided. Please ensure you provide the full name of the cryptocurrency.\nSee => https://coinmarketcap.com/all/views/all/\`\`\``);
         } else {
             message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
         }
