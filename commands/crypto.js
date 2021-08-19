@@ -18,7 +18,7 @@ module.exports = {
     }
     const args = message.content.trim().split(/ +/g);
     const userCmd = args[1];
-    const cryptoSymbol = args.slice(2, args.length).join(' ');
+    const cryptoSymbol = args[2];
 
     if (userCmd === command) {
       if (!cryptoSymbol) {
@@ -34,7 +34,7 @@ module.exports = {
         });
         jsonResponse = await response.json();
         let price = Number(jsonResponse.data.priceUsd);
-        message.channel.send(`The current rate of ${cryptoSymbol} is $${price.toFixed(2)} 💸`);
+        message.reply(`The current rate of ${cryptoSymbol} is $${price.toFixed(2)} 💸`);
       } catch (e) {
         if (jsonResponse.data?.priceUsd === undefined) {
           message.channel.send(`\`\`\`log\nInvalid cryptocurrency provided. Please ensure you provide the full name of the cryptocurrency.\nSee => ${referURL}\`\`\``);
