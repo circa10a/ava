@@ -20,6 +20,10 @@ module.exports = {
     const thingToSearch = args.slice(2, args.length).join(' ');
 
     if (userCmd === command) {
+      if (!thingToSearch) {
+        message.reply('Nothing to search');
+        return;
+      }
       try {
         const data = await searchAmazon(thingToSearch);
         const { rating, prices, title, imageUrl, productUrl } = data.searchResults[0];
