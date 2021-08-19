@@ -20,14 +20,19 @@ module.exports = {
     const thingToSearch = args.slice(2, args.length).join(' ');
 
     if (userCmd === command) {
+      if (!thingToSearch) {
+        message.reply('Nothing to search');
+        return;
+      }
       try {
         const data = await searchAmazon(thingToSearch);
         const { rating, prices, title, imageUrl, productUrl } = data.searchResults[0];
+        const price = prices[0] ? `$${prices[0].price}` : 'no prices';
         const embed = new MessageEmbed()
           .setColor(embedColor)
           .setTitle(title)
           .setURL(`https://amazon.com${productUrl}`)
-          .setDescription(`${rating.score}/${rating.outOf} stars\n$${prices[0].price}`)
+          .setDescription(`${rating.score}/${rating.outOf} stars\n${price}`)
           .setThumbnail('https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png')
           .setImage(imageUrl);
         message.channel.send({ embeds: [embed] });
