@@ -6,13 +6,14 @@ const path = require('path');
 const fileName = path.basename(__filename);
 const command = fileName.replace('.js', '');
 
+const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js'));
+const availableCommands = eventFiles.map(event => event.replace('.js', ''));
+
 module.exports = {
   commandName: command,
   name: 'messageCreate',
   once: false,
   execute(message) {
-    const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js'));
-    const availableCommands = eventFiles.map(event => event.replace('.js', ''));
     // Ensure message is intended for ava
     if (!message.content.toLowerCase().startsWith(avaPrefix)) {
       return;
