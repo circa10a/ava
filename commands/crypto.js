@@ -4,7 +4,7 @@ const { avaPrefix } = require('../config/config');
 const path = require('path');
 const fileName = path.basename(__filename);
 const command = fileName.replace('.js', '');
-const cryptoEndpoint = 'https://api.coincap.io/v2/assets/';
+const cryptoEndpoint = 'https://api.coincap.io/v2/assets';
 const referURL = 'https://coinmarketcap.com/all/views/all/';
 
 module.exports = {
@@ -26,7 +26,7 @@ module.exports = {
         return;
       }
       try {
-        const response = await fetch(cryptoEndpoint + `${cryptoSymbol}`, {
+        const response = await fetch(`${cryptoEndpoint}/${cryptoSymbol}`, {
           method: 'get',
           headers: {
             'Accept': 'application/json',
