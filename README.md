@@ -21,28 +21,34 @@ npm start
 
 ## Config
 
-|                       |          |         |
-|-----------------------|----------|---------|
-| Environment Variable  | Required | Default |
-| `AVA_DISCORD_TOKEN`   | Yes      | `""`    |
-| `AVA_ENABLE_LISTENER` | No       | `false` |
-| `AVA_HEROKU_APP_NAME` | No       | `""`    |
-| `PORT`                | No       | `8080`  |
+|                            |          |         |
+|----------------------------|----------|---------|
+| Environment Variable       | Required | Default |
+| `AVA_DISCORD_TOKEN`        | Yes      | `""`    |
+| `AVA_ENABLE_LISTENER`      | No       | `false` |
+| `AVA_HEROKU_APP_NAME`      | No       | `""`    |
+| `AVA_REDDIT_CLIENT_ID`     | No       | `""`    |
+| `AVA_REDDIT_CLIENT_SECRET` | No       | `""`    |
+| `AVA_REDDIT_USERNAME`      | No       | `""`    |
+| `AVA_REDDIT_PASSWORD`      | No       | `""`    |
+| `PORT`                     | No       | `8080`  |
 
 ## Commands
 
+- `amazon` - `ava amazon something something` searches for things on amazon.
 - `bored` - `ava bored` gives you a random activity to do.
 - `catfact` - `ava catfact` gives random fact about cats.
+- `coffee` - `ava coffee` gives you a random brand of coffee from wikipedia to try.
 - `compliment` - `ava compliment @user1234` will tag the receiving users and deliver a random kind compliment.
 - `dadjoke` - `ava dadjoke` gives random dad joke.
+- `floridaman` - `ava floridaman` gives you back a random reddit post title from `/r/FloridaMan`.
 - `gcp` - `ava gcp` tells the truth.
-- `help` - `ava help` provides a link for these docs.
+- `help` - `ava help` provides a link for these docs and available commands in the `commands` directory.
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
 - `insult` - `ava insult @user#1234` will tag the receiving user and insult them with a random phrase.
-- `list` - `ava list` lists available commands in the `events` directory.
 - `meme` - `ava meme` give random meme from reddit.
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.
-- `take-me-home` - `ava take-me-home` sings the John Denver classic.
+- `takemehome` - `ava takemehome` sings the John Denver classic.
 - `whiteclaw` - `ava whiteclaw` does the needful.
 - `yeet` - `ava yeet` sends an awesome yeet pic.
 

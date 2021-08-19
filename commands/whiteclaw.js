@@ -1,6 +1,8 @@
 const { avaPrefix } = require('../config/config');
 
-const command = 'whiteclaw';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 
 module.exports = {
   commandName: command,
@@ -8,7 +10,7 @@ module.exports = {
   once: false,
   execute(message) {
     // Ensure message is intended for ava
-    if (!message.content.startsWith(avaPrefix)){
+    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);

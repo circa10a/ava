@@ -1,7 +1,9 @@
 const fetch = require('node-fetch');
 const { avaPrefix } = require('../config/config');
 
-const command = 'dadjoke';
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 const dadJokeEndpoint = 'https://icanhazdadjoke.com/';
 
 module.exports = {
@@ -10,7 +12,7 @@ module.exports = {
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
-    if (!message.content.startsWith(avaPrefix)){
+    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);
@@ -27,7 +29,7 @@ module.exports = {
         jsonResponse = await response.json();
         message.reply(jsonResponse.joke);
       } catch(e) {
-        message.channel.send(`\`\`\`log\n${e}\`\`\``);
+        message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
     };
   }
