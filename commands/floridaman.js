@@ -32,7 +32,7 @@ module.exports = {
         message.reply(randomSubmission.title);
       } catch(e) {
         logger.error(e);
-        message.reply(e.toString());
+        message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
     }
   },

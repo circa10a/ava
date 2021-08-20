@@ -37,7 +37,7 @@ module.exports = {
         message.reply(`The current rate of ${cryptoSymbol} is $${price.toFixed(2)} 💸`);
       } catch (e) {
         if (jsonResponse.data?.priceUsd === undefined) {
-          message.channel.send(`\`\`\`log\nInvalid cryptocurrency provided. Please ensure you provide the full name of the cryptocurrency.\nSee => ${referURL}\`\`\``);
+          message.reply(`\`\`\`log\nInvalid cryptocurrency provided. Please ensure you provide the full name of the cryptocurrency.\nSee => ${referURL}\`\`\``);
         } else {
           message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
         }

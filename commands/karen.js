@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 const { avaPrefix, embedColor } = require('../config/config');
 const { getRandomSubmission } = require('../lib/reddit/submissions');
+const { isImg } = require('../lib/utils/utils');
 const logger = require('../lib/logger/logger');
 
 const path = require('path');
@@ -23,18 +24,20 @@ module.exports = {
 
     if (userCmd === command) {
       let randomSubmission = {};
-      try{
-        randomSubmission = await getRandomSubmission({subreddit});
-      } catch(e) {
-        logger.error(e);
-        message.reply(e.toString());
-        return;
-      }
-      const submissionImg = randomSubmission.url_overridden_by_dest;
+      // Try at most 3 times for an image submission
       let img = '';
-      if (submissionImg) {
-        if (submissionImg.includes('imgur') || submissionImg.endsWith('.jpg') || submissionImg.endsWith('.jpeg') || submissionImg.endsWith('.png')) {
+      for(let i = 0; i < 3; i++) {
+        try {
+          randomSubmission = await getRandomSubmission({subreddit});
+        } catch(e) {
+          logger.error(e);
+          message.reply(e.toString());
+          return;
+        }
+        let submissionImg = randomSubmission.url_overridden_by_dest;
+        if (isImg(submissionImg)) {
           img = submissionImg;
+          break;
         }
       }
       try{
@@ -47,7 +50,7 @@ module.exports = {
         message.channel.send({ embeds: [embed] });
       } catch(e) {
         logger.error(e);
-        message.reply(e.toString());
+        message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
     }
   },
