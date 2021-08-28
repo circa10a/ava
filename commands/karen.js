@@ -1,8 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 const { avaPrefix, embedColor } = require('../config/config');
-const { getRandomSubmission } = require('../lib/reddit/submissions');
-const { isImg } = require('../lib/utils/utils');
+const { getRandomSubmissionWithImage } = require('../lib/reddit/submissions');
 const logger = require('../lib/logger/logger');
 
 const path = require('path');
@@ -23,22 +22,11 @@ module.exports = {
     const userCmd = args[1];
 
     if (userCmd === command) {
-      let randomSubmission = {};
-      // Try at most 3 times for an image submission
-      let img = '';
-      for(let i = 0; i < 3; i++) {
-        try {
-          randomSubmission = await getRandomSubmission({subreddit});
-        } catch(e) {
-          logger.error(e);
-          message.reply(e.toString());
-          return;
-        }
-        let submissionImg = randomSubmission.url_overridden_by_dest;
-        if (isImg(submissionImg)) {
-          img = submissionImg;
-          break;
-        }
+      try {
+        randomSubmission = await getRandomSubmissionWithImage({subreddit});
+      } catch(e) {
+        message.reply(e.toString());
+        return;
       }
       try{
         const embed = new MessageEmbed()
@@ -46,7 +34,7 @@ module.exports = {
           .setTitle(randomSubmission.title)
           .setURL(`https://reddit.com${randomSubmission.permalink}`)
           .setDescription(randomSubmission.selftext)
-          .setImage(img);
+          .setImage(randomSubmission.url_overridden_by_dest);
         message.channel.send({ embeds: [embed] });
       } catch(e) {
         logger.error(e);
