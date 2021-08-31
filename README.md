@@ -52,6 +52,7 @@ npm start
 - `mcmahon` - `ava mcmahon` - gives you back a random excited Vince Mcmahon gif.
 - `meme` - `ava meme` give random meme from reddit.
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.
+- `sandwich` - `ava sandwich` will make you a sandwich of random food items.
 - `takemehome` - `ava takemehome` sings the John Denver classic.
 - `whiteclaw` - `ava whiteclaw` does the needful.
 - `yeet` - `ava yeet` sends an awesome yeet pic.
