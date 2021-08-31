@@ -49,6 +49,7 @@ npm start
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
 - `insult` - `ava insult @user#1234` will tag the receiving user and insult them with a random phrase.
 - `karen` - `ava karen` - gives you back a random reddit post + img from `/r/FuckYouKaren`.
+- `mcmahon` - `ava mcmahon` - gives you back a random excited Vince Mcmahon gif.
 - `meme` - `ava meme` give random meme from reddit.
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.
 - `takemehome` - `ava takemehome` sings the John Denver classic.
