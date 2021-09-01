@@ -20,7 +20,6 @@ module.exports = {
     const userCmd = args[1];
 
     if (userCmd === command) {
-      let randomSubmission = {};
       try{
         randomSubmission = await getRandomSubmission({subreddit});
       } catch(e) {
@@ -29,7 +28,7 @@ module.exports = {
         return;
       }
       try {
-        message.reply(randomSubmission.title);
+        message.reply(`${randomSubmission.title}\n${randomSubmission.url_overridden_by_dest}`);
       } catch(e) {
         logger.error(e);
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
