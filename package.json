@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "discord.js": "^13.1.0",
-    "fastify": "^3.20.2",
-    "node-fetch": "^2.6.1",
+    "fastify": "^3.21.6",
+    "node-fetch": "^3.0.0",
     "node-schedule": "^2.0.0",
     "random-food-emoji": "^2.0.0",
     "snoowrap": "^1.23.0",

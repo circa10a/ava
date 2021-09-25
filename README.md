@@ -46,6 +46,7 @@ npm start
 - `floridaman` - `ava floridaman` gives you back a random reddit post title from `/r/FloridaMan`.
 - `gcp` - `ava gcp` tells the truth.
 - `help` - `ava help` provides a link for these docs and available commands in the `commands` directory.
+- `hp` - `ava hp` gives you back a random harry potter ⚡ meme.
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
 - `insult` - `ava insult @user#1234` will tag the receiving user and insult them with a random phrase.
 - `karen` - `ava karen` - gives you back a random reddit post + img from `/r/FuckYouKaren`.

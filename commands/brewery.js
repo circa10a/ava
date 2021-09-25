@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const fetch = require('node-fetch');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const { avaPrefix, embedColor } = require('../config/config');
 const { randomItemFromArray } = require('../lib/utils/utils');
 
