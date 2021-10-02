@@ -1,7 +1,8 @@
 {
   "dependencies": {
+    "8ball": "^1.0.6",
     "discord.js": "^13.1.0",
-    "fastify": "^3.21.6",
+    "fastify": "^3.22.0",
     "node-fetch": "^3.0.0",
     "node-schedule": "^2.0.0",
     "random-food-emoji": "^2.0.0",
