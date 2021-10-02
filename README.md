@@ -35,6 +35,7 @@ npm start
 
 ## Commands
 
+- `8ball` - `ava 8ball should I order chinese food?` answers questions for you.
 - `amazon` - `ava amazon something something` searches for things on amazon.
 - `bored` - `ava bored` gives you a random activity to do.
 - `brewery` - `ava brewery new_york` gives you a random brewery from a city of your choosing.
