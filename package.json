@@ -2,13 +2,14 @@
   "dependencies": {
     "8ball": "^1.0.6",
     "dammit": "^0.5.1",
-    "discord.js": "^13.1.0",
+    "discord.js": "^13.2.0",
     "fastify": "^3.22.0",
     "node-fetch": "^3.0.0",
     "node-schedule": "^2.0.0",
     "random-food-emoji": "^2.0.0",
     "snoowrap": "^1.23.0",
     "unofficial-amazon-search": "^2.0.7",
+    "usetube": "^2.1.4",
     "wikijs": "^6.3.2",
     "winston": "^3.3.3"
   },
