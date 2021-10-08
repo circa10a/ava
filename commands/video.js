@@ -1,5 +1,6 @@
 const usetube = require('usetube');
 const { avaPrefix } = require('../config/config');
+const { randomItemFromArray } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -25,7 +26,12 @@ module.exports = {
       }
       try {
         results = await usetube.searchVideo(query);
-        message.reply(`https://www.youtube.com/watch?v=${results.videos[0].id}`);
+        if (!results.videos.length) {
+          message.reply('Nothing found, try changing your search terms');
+          return;
+        }
+        randomVideo = randomItemFromArray(results.videos);
+        message.reply(`https://www.youtube.com/watch?v=${randomVideo.id}`);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
