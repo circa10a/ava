@@ -56,6 +56,7 @@ npm start
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.
 - `sandwich` - `ava sandwich` will make you a sandwich of random food items.
 - `takemehome` - `ava takemehome` sings the John Denver classic.
+- `video` - `ava video something something` returns a youtube video based on the search terms provided.
 - `whiteclaw` - `ava whiteclaw` does the needful.
 - `yeet` - `ava yeet` sends an awesome yeet pic.
 
