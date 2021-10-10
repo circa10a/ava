@@ -50,6 +50,7 @@ npm start
 - `hp` - `ava hp` gives you back a random harry potter ⚡ meme.
 - `http` - `ava http get https://mcbroken.com/stats.json` sends http requests and formats json in reply.
 - `insult` - `ava insult @user#1234` will tag the receiving user and insult them with a random phrase.
+- `java` - `ava java` tells the truth about the java programming language.
 - `karen` - `ava karen` - gives you back a random reddit post + img from `/r/FuckYouKaren`.
 - `mcmahon` - `ava mcmahon` - gives you back a random excited Vince Mcmahon gif.
 - `meme` - `ava meme` give random meme from reddit.

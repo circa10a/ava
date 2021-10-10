@@ -18,7 +18,7 @@
   "description": "OSS Ava discord bot",
   "main": "index.js",
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^8.0.0"
   },
   "scripts": {
     "lint": "eslint .",
