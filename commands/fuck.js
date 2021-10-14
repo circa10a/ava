@@ -39,11 +39,12 @@ module.exports = {
 
         // Pick a random one
         const selection = randomItemFromArray(ops);
+        const userArg = encodeURIComponent(args.slice(2).join(' '));
 
         // Do the needful
-        const selectedUrl = selection.url.replace(':name', args[2]).replace(':from', message.author.username);
+        const selectedUrl = selection.url.replace(':name', userArg).replace(':from', message.author.username);
 
-        const resp = await fetch(foaasRootEndpoint+selectedUrl, {
+        const resp = await fetch(foaasRootEndpoint + selectedUrl, {
           method: 'get',
           headers: {
             'Accept': 'text/plain'
