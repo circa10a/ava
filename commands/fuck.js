@@ -21,7 +21,7 @@ module.exports = {
 
     if (cmd === command) {
       // Someone said 'ava fuck'
-      if (args.length() < 3) {
+      if (args.length < 3) {
         message.reply('Fuck you');
         return;
       }
