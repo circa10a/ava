@@ -30,7 +30,7 @@ module.exports = {
           then(data => data.filter(item => item.fields.length === 2 && item.url.includes(':name') && item.name!='Awesome' && item.name!='Life' && item.name!='Yeah'));
 
         // Pick a random one
-        const selection = randomItemFromArray(ops)
+        const selection = randomItemFromArray(ops);
 
         // Do the needful
         const selectedUrl = selection.url.replace(':name', args[2]).replace(':from', message.author.name);
