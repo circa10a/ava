@@ -2,10 +2,13 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const { avaPrefix } = require('../config/config');
 const { randomItemFromArray } = require('../lib/utils/utils');
 const foaasRootEndpoint = 'https://foaas.com';
-const fuck = 'fuck';
+
+const path = require('path');
+const fileName = path.basename(__filename);
+const command = fileName.replace('.js', '');
 
 module.exports = {
-  commandName: fuck,
+  commandName: command,
   name: 'messageCreate',
   once: false,
   execute: async (message) => {
@@ -16,7 +19,7 @@ module.exports = {
     const args = message.content.trim().split(/ +/g);
     const cmd = args[1];
 
-    if (cmd === fuck) {
+    if (cmd === command) {
       // Someone said 'ava fuck'
       if (args.length() < 3) {
         message.reply('Fuck you');
