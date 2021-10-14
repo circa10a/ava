@@ -45,6 +45,7 @@ npm start
 - `crypto` - `ava crypto <currencyName>` will return the latest price of the provided cryptocurrency.
 - `dadjoke` - `ava dadjoke` gives random dad joke.
 - `floridaman` - `ava floridaman` gives you back a random reddit post title from `/r/FloridaMan`.
+- `fuck` - `ava fuck <person/thing>` gives back a personalized "Fuck You" from https://foaas.com.
 - `gcp` - `ava gcp` tells the truth.
 - `help` - `ava help` provides a link for these docs and available commands in the `commands` directory.
 - `hp` - `ava hp` gives you back a random harry potter ⚡ meme.
