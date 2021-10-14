@@ -10,7 +10,7 @@ const command = fileName.replace('.js', '');
 // Some of the results from the foaas website are not fuck-offs so here is a list to exclude what we don't want
 const notFucks = [
   'Awesome', 'Life', 'Yeah', 'Rockstar', 'Legend', 'Dalton', 'Xmas'
-]
+];
 
 module.exports = {
   commandName: command,
