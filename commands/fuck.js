@@ -7,6 +7,11 @@ const path = require('path');
 const fileName = path.basename(__filename);
 const command = fileName.replace('.js', '');
 
+// Some of the results from the foaas website are not fuck-offs so here is a list to exclude what we don't want
+const notFucks = [
+  'Awesome', 'Life', 'Yeah', 'Rockstar', 'Legend', 'Dalton', 'Xmas'
+]
+
 module.exports = {
   commandName: command,
   name: 'messageCreate',
@@ -30,15 +35,15 @@ module.exports = {
         // Get the list of operations (filtered)
         const ops = await fetch('https://foaas.com/operations').
           then(response => response.json()).
-          then(data => data.filter(item => item.fields.length === 2 && item.url.includes(':name') && item.name!='Awesome' && item.name!='Life' && item.name!='Yeah'));
+          then(data => data.filter(item => item.fields.length === 2 && item.url.includes(':name') && !notFucks.includes(item.name)));
 
         // Pick a random one
         const selection = randomItemFromArray(ops);
 
         // Do the needful
-        const selectedUrl = selection.url.replace(':name', args[2]).replace(':from', message.author.name);
+        const selectedUrl = selection.url.replace(':name', args[2]).replace(':from', message.author.username);
 
-        const resp = await fetch(`${foaasRootEndpoint}/${selectedUrl}`, {
+        const resp = await fetch(foaasRootEndpoint+selectedUrl, {
           method: 'get',
           headers: {
             'Accept': 'text/plain'
