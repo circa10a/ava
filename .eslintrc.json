@@ -3,6 +3,10 @@
         "es2021": true
     },
     "rules": {
+        "eol-last": [
+            "error",
+            "always"
+        ],
         "quotes": [
             2,
             "single",
