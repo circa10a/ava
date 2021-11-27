@@ -2,12 +2,13 @@ const { MessageEmbed } = require('discord.js');
 
 const { avaPrefix, embedColor } = require('../config/config');
 const { getRandomSubmissionWithImage } = require('../lib/reddit/submissions');
+const { randomItemFromArray } = require('../lib/utils/utils');
 const logger = require('../lib/logger/logger');
 
 const path = require('path');
 const fileName = path.basename(__filename);
 const command = fileName.replace('.js', '');
-const subreddit = 'harrypotter';
+const subreddit = 'HarryPotterMemes';
 
 module.exports = {
   commandName: command,
@@ -28,7 +29,7 @@ module.exports = {
         message.reply(e.toString());
         return;
       }
-      try{
+      try {
         const embed = new MessageEmbed()
           .setColor(embedColor)
           .setTitle(randomSubmission.title)
