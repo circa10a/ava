@@ -26,6 +26,11 @@ module.exports = {
       }
       try {
         const data = await searchAmazon(thingToSearch);
+        // Sometimes no results of the search is gnarly enough
+        if (!data.searchResults) {
+          message.replay('Nothing found. Try some different search terms');
+          return;
+        };
         const { rating, prices, title, imageUrl, productUrl } = data.searchResults[0];
         const price = prices[0] ? `$${prices[0].price}` : 'no prices';
         const embed = new MessageEmbed()
