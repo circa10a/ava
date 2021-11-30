@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const { searchAmazon } = require('unofficial-amazon-search');
-const { avaPrefix, embedColor } = require('../config/config');
+const { embedColor } = require('../config/config');
+const { messageForAva } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -12,7 +13,7 @@ module.exports = {
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
-    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
+    if (!messageForAva(message)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);

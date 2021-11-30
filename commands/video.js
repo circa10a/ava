@@ -1,6 +1,5 @@
 const usetube = require('usetube');
-const { avaPrefix } = require('../config/config');
-const { randomItemFromArray } = require('../lib/utils/utils');
+const { randomItemFromArray, messageForAva } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -12,7 +11,7 @@ module.exports = {
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
-    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
+    if (!messageForAva(message)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);

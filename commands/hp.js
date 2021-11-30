@@ -1,8 +1,8 @@
 const { MessageEmbed } = require('discord.js');
 
-const { avaPrefix, embedColor } = require('../config/config');
+const { embedColor } = require('../config/config');
 const { getRandomSubmissionWithImage } = require('../lib/reddit/submissions');
-const { randomItemFromArray } = require('../lib/utils/utils');
+const { messageForAva } = require('../lib/utils/utils');
 const logger = require('../lib/logger/logger');
 
 const path = require('path');
@@ -16,7 +16,7 @@ module.exports = {
   once: false,
   execute: async (message) => {
     // Ensure message is intended for ava
-    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
+    if (!messageForAva(message)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);

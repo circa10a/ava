@@ -1,6 +1,5 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const { avaPrefix } = require('../config/config');
-const { randomItemFromArray } = require('../lib/utils/utils');
+const { randomItemFromArray, messageForAva } = require('../lib/utils/utils');
 const foaasRootEndpoint = 'https://foaas.com';
 
 const path = require('path');
@@ -17,7 +16,8 @@ module.exports = {
   name: 'messageCreate',
   once: false,
   execute: async (message) => {
-    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
+    // Ensure message is intended for ava
+    if (!messageForAva(message)) {
       return;
     }
 

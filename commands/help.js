@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
-const { avaPrefix, commandsDir, embedColor } = require('../config/config');
+const { commandsDir, embedColor } = require('../config/config');
+const { messageForAva } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -15,7 +16,7 @@ module.exports = {
   once: false,
   execute(message) {
     // Ensure message is intended for ava
-    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
+    if (!messageForAva(message)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);

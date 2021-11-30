@@ -1,7 +1,7 @@
 const wiki = require('wikijs').default;
 const { MessageEmbed } = require('discord.js');
-const { randomItemFromArray } = require('../lib/utils/utils');
-const { avaPrefix, embedColor } = require('../config/config');
+const { randomItemFromArray, messageForAva } = require('../lib/utils/utils');
+const { embedColor } = require('../config/config');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -13,7 +13,7 @@ module.exports = {
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
-    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
+    if (!messageForAva(message)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);

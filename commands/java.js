@@ -1,4 +1,4 @@
-const { avaPrefix } = require('../config/config');
+const { messageForAva } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -10,7 +10,8 @@ module.exports = {
   name: 'messageCreate',
   once: false,
   execute(message) {
-    if (!message.content.toLowerCase().startsWith(avaPrefix)) {
+    // Ensure message is intended for ava
+    if (!messageForAva(message)) {
       return;
     }
     const args = message.content.trim().split(/ +/g);
