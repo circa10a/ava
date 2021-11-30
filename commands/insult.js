@@ -1,3 +1,4 @@
+const { decode } = require('html-entities');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const { messageForAva } = require('../lib/utils/utils');
 
@@ -33,7 +34,7 @@ module.exports = {
           }
         });
         jsonResponse = await response.json();
-        message.channel.send(`${thingToInsult} ${jsonResponse.insult}`);
+        message.channel.send(`${thingToInsult} ${decode(jsonResponse.insult)}`);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
