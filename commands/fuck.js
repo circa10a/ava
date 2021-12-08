@@ -1,5 +1,6 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const { randomItemFromArray, messageForAva } = require('../lib/utils/utils');
+const { avaPrefix } = require('../config/config');
 const foaasRootEndpoint = 'https://foaas.com';
 
 const path = require('path');
@@ -9,6 +10,13 @@ const command = fileName.replace('.js', '');
 // Some of the results from the foaas website are not fuck-offs so here is a list to exclude what we don't want
 const notFucks = [
   'Awesome', 'Life', 'Yeah', 'Rockstar', 'Legend', 'Dalton', 'Xmas', 'Bravo'
+];
+
+// For when people are pissed at ava
+const avaInsults = [
+  avaPrefix,
+  'you',
+  'yourself',
 ];
 
 module.exports = {
@@ -23,8 +31,15 @@ module.exports = {
 
     const args = message.content.trim().split(/ +/g);
     const cmd = args[1];
+    const thingToInsult = args[2];
 
     if (cmd === command) {
+      // Ava fights back if people diss her
+      if (avaInsults.includes(thingToInsult.toLowerCase())) {
+        message.reply('No, fuck you!');
+        return;
+      }
+
       // Someone said 'ava fuck'
       if (args.length < 3) {
         message.reply('Fuck you');
