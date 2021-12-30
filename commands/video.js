@@ -1,5 +1,5 @@
 const usetube = require('usetube');
-const { randomItemFromArray, messageForAva } = require('../lib/utils/utils');
+const { randomItemFromArray, messageForAva, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -14,9 +14,9 @@ module.exports = {
     if (!messageForAva(message)) {
       return;
     }
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const userCmd = args[1];
-    const query = args.slice(2, args.length).join(' ');
+    const query = getAllArgsAsStr(args);
 
     if (userCmd === command) {
       if (!query) {

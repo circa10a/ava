@@ -1,6 +1,6 @@
 const { decode } = require('html-entities');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const { messageForAva } = require('../lib/utils/utils');
+const { messageForAva, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -17,9 +17,9 @@ module.exports = {
       return;
     }
 
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const userCmd = args[1];
-    const thingToInsult = args.slice(2, args.length).join(' ');
+    const thingToInsult = getAllArgsAsStr(args);
 
     if (userCmd === command) {
       if (!thingToInsult) {

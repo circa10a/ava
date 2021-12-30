@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const { embedColor } = require('../config/config');
-const { randomItemFromArray, messageForAva } = require('../lib/utils/utils');
+const { randomItemFromArray, messageForAva, splitArgs } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -18,10 +18,9 @@ module.exports = {
     if (!messageForAva(message)) {
       return;
     }
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const userCmd = args[1];
     const city = args[2];
-    const state = args[3];
 
     if (userCmd === command) {
       if (!city) {

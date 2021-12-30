@@ -1,5 +1,5 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const { randomItemFromArray, messageForAva } = require('../lib/utils/utils');
+const { randomItemFromArray, messageForAva, splitArgs } = require('../lib/utils/utils');
 const { avaPrefix } = require('../config/config');
 const foaasRootEndpoint = 'https://foaas.com';
 
@@ -29,7 +29,7 @@ module.exports = {
       return;
     }
 
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const cmd = args[1];
     const thingToInsult = args[2];
 

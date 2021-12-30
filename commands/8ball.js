@@ -1,5 +1,5 @@
 const eightball = require('8ball');
-const { messageForAva } = require('../lib/utils/utils');
+const { messageForAva , splitArgs, getAllArgsAsStr} = require('../lib/utils/utils');
 const dammit = require('dammit');
 
 const path = require('path');
@@ -15,9 +15,9 @@ module.exports = {
     if (!messageForAva(message)) {
       return;
     }
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const userCmd = args[1];
-    const question = args.slice(2, args.length).join(' ');
+    const question = getAllArgsAsStr(args);
 
     if (userCmd === command) {
       if (!question) {

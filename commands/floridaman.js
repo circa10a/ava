@@ -1,4 +1,4 @@
-const { messageForAva } = require('../lib/utils/utils');
+const { messageForAva, splitArgs } = require('../lib/utils/utils');
 const { getRandomSubmission } = require('../lib/reddit/submissions');
 const logger = require('../lib/logger/logger');
 
@@ -16,7 +16,7 @@ module.exports = {
     if (!messageForAva(message)) {
       return;
     }
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const userCmd = args[1];
 
     if (userCmd === command) {

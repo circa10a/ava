@@ -1,9 +1,7 @@
 const { parse } = require('node-html-parser');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const { randomItemFromArray, messageForAva, getBody } = require('../lib/utils/utils');
+const { randomItemFromArray, messageForAva, getBody, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
 
 const path = require('path');
-const { searchVideo } = require('usetube');
 const fileName = path.basename(__filename);
 const command = fileName.replace('.js', '');
 
@@ -21,9 +19,9 @@ module.exports = {
       return;
     }
 
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const userCmd = args[1];
-    const searchTerms = args.slice(2, args.length).join(' ');
+    const searchTerms = getAllArgsAsStr(args);
 
     if (userCmd === command) {
       try {

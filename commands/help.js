@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
 const { commandsDir, embedColor } = require('../config/config');
-const { messageForAva } = require('../lib/utils/utils');
+const { messageForAva, splitArgs } = require('../lib/utils/utils');
 
 const path = require('path');
 const fileName = path.basename(__filename);
@@ -19,7 +19,7 @@ module.exports = {
     if (!messageForAva(message)) {
       return;
     }
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const userCmd = args[1];
 
     if (userCmd === command) {

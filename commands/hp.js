@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 const { embedColor } = require('../config/config');
 const { getRandomSubmissionWithImage } = require('../lib/reddit/submissions');
-const { messageForAva } = require('../lib/utils/utils');
+const { messageForAva, splitArgs } = require('../lib/utils/utils');
 const logger = require('../lib/logger/logger');
 
 const path = require('path');
@@ -19,7 +19,7 @@ module.exports = {
     if (!messageForAva(message)) {
       return;
     }
-    const args = message.content.trim().split(/ +/g);
+    const args = splitArgs(message);
     const userCmd = args[1];
 
     if (userCmd === command) {
