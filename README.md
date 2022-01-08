@@ -44,6 +44,7 @@ npm start
 - `compliment` - `ava compliment @user1234` will tag the receiving users and deliver a random kind compliment.
 - `crypto` - `ava crypto <currencyName>` will return the latest price of the provided cryptocurrency.
 - `dadjoke` - `ava dadjoke` gives random dad joke.
+- `emoji` - `ava emoji something something` gives back the first small image result from a google search.
 - `floridaman` - `ava floridaman` gives you back a random reddit post title from `/r/FloridaMan`.
 - `fuck` - `ava fuck <person/thing>` gives back a personalized "Fuck You" from https://foaas.com.
 - `gcp` - `ava gcp` tells the truth.
