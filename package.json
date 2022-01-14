@@ -2,7 +2,7 @@
   "dependencies": {
     "8ball": "^1.0.6",
     "dammit": "^0.5.1",
-    "discord.js": "^13.5.1",
+    "discord.js": "^13.6.0",
     "fastify": "^3.25.3",
     "html-entities": "^2.3.2",
     "image-search-engine": "^1.2.1",
@@ -14,7 +14,7 @@
     "unofficial-amazon-search": "^2.0.8",
     "usetube": "^2.1.4",
     "wikijs": "^6.3.3",
-    "winston": "^3.3.3"
+    "winston": "^3.4.0"
   },
   "name": "ava",
   "version": "1.0.0",
