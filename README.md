@@ -59,6 +59,7 @@ npm start
 - `mock` - `ava mock <text>` reports back spongebob "mock" formatted text.
 - `recipe` - `ava recipe` - gives you back a random recipe from [seriouseats](https://www.seriouseats.com/). Alternatively, you can search with `ava recipe pizza`.
 - `takemehome` - `ava takemehome` sings the John Denver classic.
+- `tldr` - `ava tldr https://somenews.site` returns a 2 sentence TLDR for a webpage.
 - `video` - `ava video something something` returns a youtube video based on the search terms provided.
 - `whiteclaw` - `ava whiteclaw` does the needful.
 - `yeet` - `ava yeet` sends an awesome yeet pic.
