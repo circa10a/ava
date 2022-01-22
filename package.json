@@ -3,10 +3,10 @@
     "8ball": "^1.0.6",
     "dammit": "^0.5.1",
     "discord.js": "^13.6.0",
-    "fastify": "^3.25.3",
+    "fastify": "^3.27.0",
     "html-entities": "^2.3.2",
     "image-search-engine": "^1.2.1",
-    "node-fetch": "^3.1.0",
+    "node-fetch": "^3.2.0",
     "node-html-parser": "^5.2.0",
     "node-schedule": "^2.1.0",
     "node-summarizer": "^1.0.7",
@@ -23,7 +23,7 @@
   "description": "OSS Ava discord bot",
   "main": "index.js",
   "devDependencies": {
-    "eslint": "^8.6.0",
+    "eslint": "^8.7.0",
     "eslint-plugin-unused-imports": "^2.0.0"
   },
   "scripts": {
