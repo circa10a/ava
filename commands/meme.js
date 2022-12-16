@@ -1,16 +1,20 @@
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const { MessageEmbed } = require('discord.js');
+
+const { embedColor } = require('../config/config');
+const { getRandomSubmissionWithImage } = require('../lib/reddit/submissions');
 const { messageForAva, splitArgs } = require('../lib/utils/utils');
+const logger = require('../lib/logger/logger');
 
 const path = require('path');
 const fileName = path.basename(__filename);
 const command = fileName.replace('.js', '');
-const randomMemeEndpoint = 'https://meme-api.herokuapp.com/gimme';
+const subreddit = 'memes';
 
 module.exports = {
   commandName: command,
   name: 'messageCreate',
   once: false,
-  execute: async(message) => {
+  execute: async (message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {
       return;
@@ -20,17 +24,23 @@ module.exports = {
 
     if (userCmd === command) {
       try {
-        const response = await fetch(randomMemeEndpoint, {
-          method: 'get',
-          headers: {
-            'Accept': 'application/json',
-          }
-        });
-        jsonResponse = await response.json();
-        message.reply(jsonResponse.url);
+        randomSubmission = await getRandomSubmissionWithImage({subreddit});
       } catch(e) {
+        message.reply(e.toString());
+        return;
+      }
+      try {
+        const embed = new MessageEmbed()
+          .setColor(embedColor)
+          .setTitle(randomSubmission.title)
+          .setURL(`https://reddit.com${randomSubmission.permalink}`)
+          .setDescription(randomSubmission.selftext)
+          .setImage(randomSubmission.url_overridden_by_dest);
+        message.channel.send({ embeds: [embed] });
+      } catch(e) {
+        logger.error(e);
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
-  }
+    }
+  },
 };
