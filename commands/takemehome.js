@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const { sleep , messageForAva, splitArgs} = require('../lib/utils/utils');
 
 const path = require('path');
@@ -7,7 +8,7 @@ const wait = 2000;
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava

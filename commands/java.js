@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const { messageForAva, splitArgs } = require('../lib/utils/utils');
 
 const path = require('path');
@@ -7,7 +8,7 @@ const javaImage = 'https://i.redd.it/o4w97sa7iidz.jpg';
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute(message) {
     // Ensure message is intended for ava

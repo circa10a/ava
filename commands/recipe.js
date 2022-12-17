@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const { parse } = require('node-html-parser');
 const { randomItemFromArray, messageForAva, getBody, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
 
@@ -11,7 +12,7 @@ const itemsHTMLClass ='#schema-lifestyle_1-0';
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava

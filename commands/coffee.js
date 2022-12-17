@@ -1,5 +1,5 @@
 const wiki = require('wikijs').default;
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const { randomItemFromArray, messageForAva, splitArgs } = require('../lib/utils/utils');
 const { embedColor } = require('../config/config');
 
@@ -9,7 +9,7 @@ const command = fileName.replace('.js', '');
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
@@ -28,7 +28,7 @@ module.exports = {
         const brandTitle = wikiPage.title;
         const [pageImage, summary] = await Promise.all([wikiPage.pageImage(), wikiPage.summary()]);
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
           .setColor(embedColor)
           .setTitle(brandTitle)
           .setURL(wikiPageUrl)

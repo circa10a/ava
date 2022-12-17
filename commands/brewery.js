@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const { embedColor } = require('../config/config');
 const { randomItemFromArray, messageForAva, splitArgs } = require('../lib/utils/utils');
@@ -11,7 +11,7 @@ const beerThumbnail = 'https://i.imgur.com/6ZKnMaw.jpg';
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
@@ -40,7 +40,7 @@ module.exports = {
           message.reply('City not found');
           return;
         }
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
           .setColor(embedColor)
           .setTitle(randomBrewery.name)
           .setURL(randomBrewery.website_url)

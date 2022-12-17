@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const { messageForAva, splitArgs, getAllArgsAsStr} = require('../lib/utils/utils');
 
 const path = require('path');
@@ -14,7 +15,7 @@ const mockText = (str) => {
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute(message) {
     // Ensure message is intended for ava

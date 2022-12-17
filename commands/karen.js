@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 
 const { embedColor } = require('../config/config');
 const { messageForAva, splitArgs } = require('../lib/utils/utils');
@@ -12,7 +12,7 @@ const subreddit = 'FuckYouKaren';
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async (message) => {
     // Ensure message is intended for ava
@@ -30,11 +30,12 @@ module.exports = {
         return;
       }
       try{
-        const embed = new MessageEmbed()
+        let description = randomSubmission.selftext || subreddit;
+        const embed = new EmbedBuilder()
           .setColor(embedColor)
           .setTitle(randomSubmission.title)
           .setURL(`https://reddit.com${randomSubmission.permalink}`)
-          .setDescription(randomSubmission.selftext)
+          .setDescription(description)
           .setImage(randomSubmission.url_overridden_by_dest);
         message.channel.send({ embeds: [embed] });
       } catch(e) {

@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const { decode } = require('html-entities');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const { messageForAva, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
@@ -9,7 +10,7 @@ const insultEndpoint = 'https://evilinsult.com/generate_insult.php?lang=en&type=
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava

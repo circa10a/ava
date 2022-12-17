@@ -1,9 +1,7 @@
-const { Client, Intents } = require('discord.js');
+const { Client, Events, GatewayIntentBits } = require('discord.js');
 const logger = require('./lib/logger/logger');
-const fastify = require('fastify')();
 const fs = require('fs');
-const { commandsDir, port, enableHTTPListener } = require('./config/config');
-const selfPingJob = require('./lib/jobs/selfPing');
+const { commandsDir } = require('./config/config');
 
 const { AVA_DISCORD_TOKEN } = process.env;
 
@@ -13,13 +11,14 @@ if (!AVA_DISCORD_TOKEN) {
 }
 
 const client = new Client({ intents: [
-  Intents.FLAGS.GUILDS,
-  Intents.FLAGS.GUILD_MESSAGES
+  GatewayIntentBits.Guilds,
+  GatewayIntentBits.GuildMessages,
+  GatewayIntentBits.MessageContent,
 ]});
 
 client.setMaxListeners(0);
-client.once('ready', () => {
-  logger.info('Ready!');
+client.once(Events.ClientReady, c => {
+  logger.info(`Ready! Logged in as ${c.user.tag}`);
 });
 
 const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js'));
@@ -32,29 +31,4 @@ for (const file of eventFiles) {
   }
 }
 
-client.login(process.env.AVA_DISCORD_TOKEN);
-
-// Add a bullshit route so cloud provider keeps the thing running due to health checks
-if (enableHTTPListener) {
-  fastify.get('/', async(req, res) => {
-    return res.code(200).send(
-      {
-        status: 'ok',
-      });
-  });
-
-  const start = async () => {
-    try {
-      await fastify.listen(port, '0.0.0.0');
-    } catch (err) {
-      logger.error(err);
-      process.exit(1);
-    }
-  };
-
-  // Self ping job needed for heroku
-  if (process.env.AVA_HEROKU_APP_NAME){
-    selfPingJob();
-  }
-  start();
-}
+client.login(AVA_DISCORD_TOKEN);

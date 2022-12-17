@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const { messageForAva, splitArgs } = require('../lib/utils/utils');
 
@@ -7,7 +8,7 @@ const command = fileName.replace('.js', '');
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava

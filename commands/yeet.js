@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const { messageForAva, splitArgs } = require('../lib/utils/utils');
 
 const path = require('path');
@@ -7,7 +8,7 @@ const yeetImage = 'https://i.kym-cdn.com/entries/icons/original/000/031/544/cove
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute(message) {
     // Ensure message is intended for ava

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const { searchAmazon } = require('unofficial-amazon-search');
 const { embedColor } = require('../config/config');
 const { messageForAva, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
@@ -9,7 +9,7 @@ const command = fileName.replace('.js', '');
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
@@ -34,7 +34,7 @@ module.exports = {
         };
         const { rating = 'N/A', prices, title, imageUrl, productUrl } = data.searchResults[0];
         const price = prices[0] ? `$${prices[0].price}` : 'no prices';
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
           .setColor(embedColor)
           .setTitle(title)
           .setURL(`https://amazon.com${productUrl}`)

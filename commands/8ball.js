@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const eightball = require('8ball');
 const { messageForAva , splitArgs, getAllArgsAsStr} = require('../lib/utils/utils');
 const dammit = require('dammit');
@@ -8,7 +9,7 @@ const command = fileName.replace('.js', '');
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava

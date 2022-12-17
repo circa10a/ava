@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const { randomItemFromArray, messageForAva, splitArgs } = require('../lib/utils/utils');
 
 const path = require('path');
@@ -15,7 +16,7 @@ const mcmahonExcitedGifs = [
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: message => {
     // Ensure message is intended for ava

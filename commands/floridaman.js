@@ -1,3 +1,4 @@
+const { Events } = require('discord.js');
 const { messageForAva, splitArgs } = require('../lib/utils/utils');
 const { getRandomSubmission } = require('../lib/reddit/submissions');
 const logger = require('../lib/logger/logger');
@@ -9,7 +10,7 @@ const subreddit = 'FloridaMan';
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute: async(message) => {
     // Ensure message is intended for ava

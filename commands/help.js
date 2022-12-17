@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, Events } = require('discord.js');
 const fs = require('fs');
 const { commandsDir, embedColor } = require('../config/config');
 const { messageForAva, splitArgs } = require('../lib/utils/utils');
@@ -12,7 +12,7 @@ const availableCommands = eventFiles.map(event => event.replace('.js', ''));
 
 module.exports = {
   commandName: command,
-  name: 'messageCreate',
+  name: Events.MessageCreate,
   once: false,
   execute(message) {
     // Ensure message is intended for ava
@@ -23,7 +23,7 @@ module.exports = {
     const userCmd = args[1];
 
     if (userCmd === command) {
-      const embed = new MessageEmbed()
+      const embed = new EmbedBuilder()
         .setColor(embedColor)
         .setTitle('Available Commands')
         .setURL('https://github.com/circa10a/ava')
