@@ -32,12 +32,19 @@ module.exports = {
           message.reply('Nothing found. Try some different search terms, or amazon may have blocked us');
           return;
         };
-        const { rating = 'N/A', prices, title, imageUrl, productUrl } = data.searchResults[0];
+
+        let { rating = 'N/A', prices, title, imageUrl, productUrl } = data.searchResults[0];
         const price = prices[0] ? `$${prices[0].price}` : 'no prices';
+
+        // Sometimes it's just a path, sometimes it's a full url. I don't fucking know.
+        if (productUrl.startsWith('/')) {
+          productUrl = `https://amazon.com${productUrl}`;
+        }
+
         const embed = new EmbedBuilder()
           .setColor(embedColor)
           .setTitle(title)
-          .setURL(`https://amazon.com${productUrl}`)
+          .setURL(productUrl)
           .setDescription(`${rating.score}/${rating.outOf} stars\n${price}`)
           .setThumbnail('https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png')
           .setImage(imageUrl);

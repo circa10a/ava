@@ -25,6 +25,7 @@ module.exports = {
     if (userCmd === command) {
       try {
         randomSubmission = await getRandomSubmissionWithImage({subreddit});
+        console.log(randomSubmission)
       } catch(e) {
         message.reply(e.toString());
         return;
