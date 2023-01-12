@@ -7,7 +7,6 @@
     "image-search-engine": "^1.2.1",
     "node-fetch": "^3.3.0",
     "node-html-parser": "^6.1.4",
-    "node-schedule": "^2.1.0",
     "node-summarizer": "^1.0.7",
     "random-food-emoji": "^2.0.1",
     "snoowrap": "^1.23.0",
@@ -22,7 +21,7 @@
   "description": "OSS Ava discord bot",
   "main": "index.js",
   "devDependencies": {
-    "eslint": "^8.30.0",
+    "eslint": "^8.31.0",
     "eslint-plugin-unused-imports": "^2.0.0"
   },
   "scripts": {
