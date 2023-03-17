@@ -25,13 +25,12 @@ npm start
 |----------------------------|----------|---------|
 | Environment Variable       | Required | Default |
 | `AVA_DISCORD_TOKEN`        | Yes      | `""`    |
-| `AVA_ENABLE_LISTENER`      | No       | `false` |
-| `AVA_HEROKU_APP_NAME`      | No       | `""`    |
+| `AVA_DB_DIR`               | No       | `./`    |
+| `AVA_ENABLE_REMINDERS`     | No       | `false` |
 | `AVA_REDDIT_CLIENT_ID`     | No       | `""`    |
 | `AVA_REDDIT_CLIENT_SECRET` | No       | `""`    |
 | `AVA_REDDIT_USERNAME`      | No       | `""`    |
 | `AVA_REDDIT_PASSWORD`      | No       | `""`    |
-| `PORT`                     | No       | `8080`  |
 
 ## Commands
 
