@@ -1,16 +1,13 @@
-const { Events } = require('discord.js');
-const { parse } = require('node-html-parser');
-const { randomItemFromArray, messageForAva, getBody, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
+import { Events } from 'discord.js';
+import { parse } from 'node-html-parser';
+import { randomItemFromArray, messageForAva, getBody, splitArgs, getAllArgsAsStr, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
-
+const command = getFileName(import.meta.url);
 const seriousEatsBaseURL = 'https://www.seriouseats.com';
 const allRecipesEndpoint = `${seriousEatsBaseURL}/all-recipes-5117985`;
 const itemsHTMLClass ='#schema-lifestyle_1-0';
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -59,6 +56,6 @@ module.exports = {
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
+    }
   }
 };

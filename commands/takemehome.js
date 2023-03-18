@@ -1,12 +1,11 @@
-const { Events } = require('discord.js');
-const { sleep , messageForAva, splitArgs} = require('../lib/utils/utils');
+import { Events } from 'discord.js';
+import { sleep , messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
+
 const wait = 2000;
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,

@@ -1,9 +1,13 @@
 // Reddit
 const { AVA_REDDIT_CLIENT_ID, AVA_REDDIT_CLIENT_SECRET, AVA_REDDIT_USERNAME, AVA_REDDIT_PASSWORD } = process.env;
 
-module.exports = {
+// DB
+const { AVA_DB_DIR } = process.env;
+
+const config = {
   avaPrefix: 'ava',
   commandsDir: 'commands',
+  dbDir: AVA_DB_DIR || './',
   embedColor: '#0099ff',
   reddit: {
     userAgent: 'ava-discord-bot',
@@ -13,3 +17,5 @@ module.exports = {
     password: AVA_REDDIT_PASSWORD
   }
 };
+
+export const { avaPrefix, commandsDir, dbDir, embedColor, reddit} = config;

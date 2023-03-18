@@ -1,13 +1,11 @@
-const { EmbedBuilder, Events } = require('discord.js');
-const { searchAmazon } = require('unofficial-amazon-search');
-const { embedColor } = require('../config/config');
-const { messageForAva, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
+import  { EmbedBuilder, Events } from 'discord.js';
+import searchAmazon from 'unofficial-amazon-search';
+import { embedColor } from '../config/config.js';
+import { messageForAva, splitArgs, getAllArgsAsStr, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -31,7 +29,7 @@ module.exports = {
         if (!data.searchResults.length) {
           message.reply('Nothing found. Try some different search terms, or amazon may have blocked us');
           return;
-        };
+        }
 
         let { rating = 'N/A', prices, title, imageUrl, productUrl } = data.searchResults[0];
         const price = prices[0] ? `$${prices[0].price}` : 'no prices';
@@ -52,6 +50,6 @@ module.exports = {
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
+    }
   }
 };

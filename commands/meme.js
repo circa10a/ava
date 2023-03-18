@@ -1,16 +1,14 @@
-const { EmbedBuilder, Events } = require('discord.js');
+import { EmbedBuilder, Events } from 'discord.js';
 
-const { embedColor } = require('../config/config');
-const { getRandomSubmissionWithImage } = require('../lib/reddit/submissions');
-const { messageForAva, splitArgs } = require('../lib/utils/utils');
-const logger = require('../lib/logger/logger');
+import { embedColor } from '../config/config.js';
+import { getRandomSubmissionWithImage } from '../lib/reddit/submissions.js';
+import { messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
-const subreddit = 'memes';
+const command = getFileName(import.meta.url);
 
-module.exports = {
+const subreddit = 'dankmemes';
+
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -23,6 +21,7 @@ module.exports = {
     const userCmd = args[1];
 
     if (userCmd === command) {
+      let randomSubmission = {};
       try {
         randomSubmission = await getRandomSubmissionWithImage({subreddit});
       } catch(e) {
@@ -39,7 +38,6 @@ module.exports = {
           .setImage(randomSubmission.url_overridden_by_dest);
         message.channel.send({ embeds: [embed] });
       } catch(e) {
-        logger.error(e);
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
     }

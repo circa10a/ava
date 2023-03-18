@@ -1,15 +1,14 @@
-const { EmbedBuilder, Events } = require('discord.js');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const { embedColor } = require('../config/config');
-const { randomItemFromArray, messageForAva, splitArgs } = require('../lib/utils/utils');
+import { EmbedBuilder, Events } from 'discord.js';
+import fetch from 'node-fetch';
+import { embedColor } from '../config/config.js';
+import { randomItemFromArray, messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
+
 const breweryEndpoint = 'https://api.openbrewerydb.org/breweries';
 const beerThumbnail = 'https://i.imgur.com/6ZKnMaw.jpg';
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -34,8 +33,8 @@ module.exports = {
             'Accept': 'application/json',
           }
         });
-        breweries = await response.json();
-        randomBrewery = randomItemFromArray(breweries);
+        const breweries = await response.json();
+        const randomBrewery = randomItemFromArray(breweries);
         if (!randomBrewery) {
           message.reply('City not found');
           return;
@@ -55,6 +54,6 @@ module.exports = {
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
+    }
   }
 };

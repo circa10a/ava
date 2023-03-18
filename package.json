@@ -1,10 +1,12 @@
 {
   "dependencies": {
     "8ball": "^1.0.6",
+    "chrono-node": "^2.6.1",
     "dammit": "^0.5.1",
     "discord.js": "^14.8.0",
     "html-entities": "^2.3.3",
     "image-search-engine": "^1.2.1",
+    "lowdb": "^5.1.0",
     "node-fetch": "^3.3.1",
     "node-html-parser": "^6.1.5",
     "node-summarizer": "^1.0.7",
@@ -19,7 +21,8 @@
   "name": "ava",
   "version": "1.0.0",
   "description": "OSS Ava discord bot",
-  "main": "index.js",
+  "main": "./index.js",
+  "type": "module",
   "devDependencies": {
     "eslint": "^8.36.0",
     "eslint-plugin-unused-imports": "^2.0.0"

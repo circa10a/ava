@@ -1,14 +1,12 @@
-const { Events } = require('discord.js');
-const { messageForAva, splitArgs } = require('../lib/utils/utils');
-const { getRandomSubmission } = require('../lib/reddit/submissions');
-const logger = require('../lib/logger/logger');
+import { Events } from 'discord.js';
+import { messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
+import { getRandomSubmission } from '../lib/reddit/submissions.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
+
 const subreddit = 'FloridaMan';
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -21,17 +19,16 @@ module.exports = {
     const userCmd = args[1];
 
     if (userCmd === command) {
+      let randomSubmission = {};
       try{
         randomSubmission = await getRandomSubmission({subreddit});
       } catch(e) {
-        logger.error(e);
         message.reply(e.toString());
         return;
       }
       try {
         message.reply(`${randomSubmission.title}\n${randomSubmission.url_overridden_by_dest}`);
       } catch(e) {
-        logger.error(e);
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
     }

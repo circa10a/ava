@@ -1,12 +1,11 @@
-const { Events } = require('discord.js');
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const { randomItemFromArray, messageForAva, splitArgs } = require('../lib/utils/utils');
-const { avaPrefix } = require('../config/config');
+import { Events } from 'discord.js';
+import fetch from 'node-fetch';
+import { randomItemFromArray, messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
+import { avaPrefix } from '../config/config.js';
+
 const foaasRootEndpoint = 'https://foaas.com';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
 
 // Some of the results from the foaas website are not fuck-offs so here is a list to exclude what we don't want
 const notFucks = [
@@ -20,7 +19,7 @@ const avaInsults = [
   'yourself',
 ];
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
