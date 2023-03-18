@@ -1,13 +1,12 @@
-const { Events } = require('discord.js');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const { messageForAva, splitArgs } = require('../lib/utils/utils');
+import { Events } from 'discord.js';
+import fetch from 'node-fetch';
+import { messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
+
 const catFactEndpoint = 'https://catfact.ninja/fact';
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -27,11 +26,11 @@ module.exports = {
             'Accept': 'application/json',
           }
         });
-        jsonResponse = await response.json();
+        const jsonResponse = await response.json();
         message.reply(jsonResponse.fact);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
+    }
   }
 };

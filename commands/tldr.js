@@ -1,14 +1,13 @@
-const { Events } = require('discord.js');
-const summarizerManager = require('node-summarizer').SummarizerManager;
-const extractor = require('unfluff');
-const { messageForAva, splitArgs, getBody, stringIsAValidUrl } = require('../lib/utils/utils');
+import { Events } from 'discord.js';
+import {SummarizerManager as summarizerManager} from 'node-summarizer';
+import extractor from 'unfluff';
+import { messageForAva, splitArgs, getBody, stringIsAValidUrl, getFileName } from '../lib/utils/utils.js';
 
 const numberOfSentencesToSummarize = 2;
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
 
-module.exports = {
+const command = getFileName(import.meta.url);
+
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -47,6 +46,6 @@ module.exports = {
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
+    }
   }
 };

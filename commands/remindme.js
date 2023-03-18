@@ -1,7 +1,8 @@
-const { Events } = require('discord.js');
-const { messageForAva, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
+import { Events } from 'discord.js';
+import * as chrono from 'chrono-node';
+import { messageForAva, splitArgs, getAllArgsAsStr } from '../lib/utils/utils.js';
 
-command = 'remindme';
+const command = 'remindme';
 
 const remindMe = (opts = {}) => {
   return {
@@ -13,25 +14,41 @@ const remindMe = (opts = {}) => {
       if (!messageForAva(message)) {
         return;
       }
+
       const args = splitArgs(message);
       const userCmd = args[1];
       const remindmeArg = getAllArgsAsStr(args);
 
-      if (userCmd === remindmeArg) {
-        if (!userToCompliment) {
-          const { db } = opts;
+      if (userCmd === command) {
+        const { db } = opts;
 
-          db.reminders.push(remindmeArg);
-          message.reply(remindmeArg);
+        const remindTime = chrono.parseDate(remindmeArg);
+        if (!remindTime){
+          message.reply('Sorry, unable to determine when to remind you. Please try to rephrase');
           return;
         }
+
+        const thingToRemind =  message.content.split(' ').slice(3).join(' ');
+
         try {
+          db.data.reminders.push({
+            channelId: message.channelId,
+            guildId: message.guildId,
+            messageId: message.id,
+            reminder: thingToRemind,
+            user: message.author.username,
+            createdTimestamp: message.createdTimestamp,
+            remindTime,
+          });
+          db.write();
+          message.reply(`Got it. Will remind you to ${thingToRemind}`);
+          return;
         } catch(e) {
           message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
         }
-      };
+      }
     }
   };
 };
 
-module.exports = remindMe;
+export default remindMe;

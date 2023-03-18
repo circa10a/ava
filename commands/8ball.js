@@ -1,13 +1,11 @@
-const { Events } = require('discord.js');
-const eightball = require('8ball');
-const { messageForAva , splitArgs, getAllArgsAsStr} = require('../lib/utils/utils');
-const dammit = require('dammit');
+import { Events } from 'discord.js';
+import eightball from '8ball';
+import { messageForAva , splitArgs, getAllArgsAsStr, getFileName } from '../lib/utils/utils.js';
+import dammit from 'dammit';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -30,6 +28,6 @@ module.exports = {
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
+    }
   }
 };

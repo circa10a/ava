@@ -1,16 +1,14 @@
-const { EmbedBuilder, Events } = require('discord.js');
-const fs = require('fs');
-const { commandsDir, embedColor } = require('../config/config');
-const { messageForAva, splitArgs } = require('../lib/utils/utils');
+import { EmbedBuilder, Events } from 'discord.js';
+import * as fs from 'fs';
+import { commandsDir, embedColor } from '../config/config.js';
+import { messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
 
 const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js'));
 const availableCommands = eventFiles.map(event => event.replace('.js', ''));
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,

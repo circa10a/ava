@@ -4,7 +4,7 @@ const { AVA_REDDIT_CLIENT_ID, AVA_REDDIT_CLIENT_SECRET, AVA_REDDIT_USERNAME, AVA
 // DB
 const { AVA_DB_DIR } = process.env;
 
-module.exports = {
+const config = {
   avaPrefix: 'ava',
   commandsDir: 'commands',
   dbDir: AVA_DB_DIR || './',
@@ -17,3 +17,5 @@ module.exports = {
     password: AVA_REDDIT_PASSWORD
   }
 };
+
+export const { avaPrefix, commandsDir, dbDir, embedColor, reddit} = config;

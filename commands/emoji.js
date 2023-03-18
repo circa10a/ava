@@ -1,13 +1,10 @@
-const { Events } = require('discord.js');
-const imageFinder = require('image-search-engine');
-const { messageForAva, splitArgs, getAllArgsAsStr} = require('../lib/utils/utils');
+import { Events } from 'discord.js';
+import imageFinder from 'image-search-engine';
+import { messageForAva, splitArgs, getAllArgsAsStr, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
 
-
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -27,6 +24,6 @@ module.exports = {
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
+    }
   }
 };

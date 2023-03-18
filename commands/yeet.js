@@ -1,12 +1,11 @@
-const { Events } = require('discord.js');
-const { messageForAva, splitArgs } = require('../lib/utils/utils');
+import { Events } from 'discord.js';
+import { messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
+
 const yeetImage = 'https://i.kym-cdn.com/entries/icons/original/000/031/544/cover13.jpg';
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,

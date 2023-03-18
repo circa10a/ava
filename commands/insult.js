@@ -1,14 +1,13 @@
-const { Events } = require('discord.js');
-const { decode } = require('html-entities');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const { messageForAva, splitArgs, getAllArgsAsStr } = require('../lib/utils/utils');
+import { Events } from 'discord.js';
+import { decode } from 'html-entities';
+import fetch from 'node-fetch';
+import { messageForAva, splitArgs, getAllArgsAsStr, getFileName } from '../lib/utils/utils.js';
 
-const path = require('path');
-const fileName = path.basename(__filename);
-const command = fileName.replace('.js', '');
+const command = getFileName(import.meta.url);
+
 const insultEndpoint = 'https://evilinsult.com/generate_insult.php?lang=en&type=json';
 
-module.exports = {
+export default {
   commandName: command,
   name: Events.MessageCreate,
   once: false,
@@ -34,11 +33,11 @@ module.exports = {
             'Accept': 'application/json',
           }
         });
-        jsonResponse = await response.json();
+        const jsonResponse = await response.json();
         message.channel.send(`${thingToInsult} ${decode(jsonResponse.insult)}`);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
-    };
+    }
   }
 };
