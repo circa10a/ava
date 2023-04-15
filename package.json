@@ -1,12 +1,12 @@
 {
   "dependencies": {
     "8ball": "^1.0.6",
-    "chrono-node": "^2.6.1",
+    "chrono-node": "^2.6.3",
     "dammit": "^0.5.1",
-    "discord.js": "^14.8.0",
+    "discord.js": "^14.10.2",
     "html-entities": "^2.3.3",
     "image-search-engine": "^1.2.1",
-    "lowdb": "^5.1.0",
+    "lowdb": "^6.0.1",
     "node-fetch": "^3.3.1",
     "node-html-parser": "^6.1.5",
     "node-summarizer": "^1.0.7",
@@ -14,7 +14,7 @@
     "snoowrap": "^1.23.0",
     "unfluff": "^3.2.0",
     "unofficial-amazon-search": "^2.0.8",
-    "usetube": "^2.2.2",
+    "usetube": "^2.2.7",
     "wikijs": "^6.4.1",
     "winston": "^3.8.2"
   },
@@ -24,7 +24,7 @@
   "main": "./index.js",
   "type": "module",
   "devDependencies": {
-    "eslint": "^8.36.0",
+    "eslint": "^8.39.0",
     "eslint-plugin-unused-imports": "^2.0.0"
   },
   "scripts": {
