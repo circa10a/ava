@@ -3,8 +3,8 @@
     "8ball": "^1.0.6",
     "chrono-node": "^2.6.3",
     "dammit": "^0.5.1",
-    "discord.js": "^14.10.2",
-    "html-entities": "^2.3.3",
+    "discord.js": "^14.11.0",
+    "html-entities": "^2.3.6",
     "image-search-engine": "^1.2.1",
     "lowdb": "^6.0.1",
     "node-fetch": "^3.3.1",
@@ -16,7 +16,7 @@
     "unofficial-amazon-search": "^2.0.8",
     "usetube": "^2.2.7",
     "wikijs": "^6.4.1",
-    "winston": "^3.8.2"
+    "winston": "^3.9.0"
   },
   "name": "ava",
   "version": "1.0.0",
@@ -24,7 +24,7 @@
   "main": "./index.js",
   "type": "module",
   "devDependencies": {
-    "eslint": "^8.39.0",
+    "eslint": "^8.43.0",
     "eslint-plugin-unused-imports": "^2.0.0"
   },
   "scripts": {
