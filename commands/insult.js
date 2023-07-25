@@ -19,13 +19,18 @@ export default {
 
     const args = splitArgs(message);
     const userCmd = args[1];
-    const thingToInsult = getAllArgsAsStr(args);
+    let thingToInsult = getAllArgsAsStr(args);
 
     if (userCmd === command) {
       if (!thingToInsult) {
         message.reply('Nothing to insult');
         return;
       }
+
+      if (thingToInsult === 'me') {
+        thingToInsult = message.author.toString();
+      }
+
       try {
         const response = await fetch(insultEndpoint, {
           method: 'get',
@@ -34,7 +39,7 @@ export default {
           }
         });
         const jsonResponse = await response.json();
-        message.channel.send(`${thingToInsult} ${decode(jsonResponse.insult)}`);
+        message.channel.send(`${thingToInsult}, ${decode(jsonResponse.insult)}`);
       } catch(e) {
         message.channel.send(`\`\`\`log\n${e.toString()}\`\`\``);
       }
