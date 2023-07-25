@@ -41,6 +41,7 @@ npm start
 - `catfact` - `ava catfact` gives random fact about cats.
 - `coffee` - `ava coffee` gives you a random brand of coffee from wikipedia to try.
 - `compliment` - `ava compliment @user1234` will tag the receiving users and deliver a random kind compliment.
+- `contribute` - `ava contribute` will reply with the project source URL for contributions.
 - `emoji` - `ava emoji something something` gives back the first small image result from a google search.
 - `floridaman` - `ava floridaman` gives you back a random reddit post title from `/r/FloridaMan`.
 - `fuck` - `ava fuck <person/thing>` gives back a personalized "Fuck You" from https://foaas.com.
