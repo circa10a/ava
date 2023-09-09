@@ -1,14 +1,14 @@
 {
   "dependencies": {
     "8ball": "^1.0.6",
-    "chrono-node": "^2.6.4",
+    "chrono-node": "^2.6.6",
     "dammit": "^0.5.1",
-    "discord.js": "^14.11.0",
+    "discord.js": "^14.13.0",
     "html-entities": "^2.4.0",
     "image-search-engine": "^1.2.1",
     "lowdb": "^6.0.1",
-    "node-fetch": "^3.3.1",
-    "node-html-parser": "^6.1.5",
+    "node-fetch": "^3.3.2",
+    "node-html-parser": "^6.1.8",
     "node-summarizer": "^1.0.7",
     "random-food-emoji": "^2.0.1",
     "snoowrap": "^1.23.0",
@@ -24,7 +24,7 @@
   "main": "./index.js",
   "type": "module",
   "devDependencies": {
-    "eslint": "^8.45.0",
+    "eslint": "^8.49.0",
     "eslint-plugin-unused-imports": "^3.0.0"
   },
   "scripts": {

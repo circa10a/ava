@@ -60,8 +60,9 @@ if (AVA_ENABLE_REMINDERS) {
 
     // Start reminder daemon
     startReminderDaemon({
-      client,
-      db
+      client: client,
+      checkForRemindersInterval: 60000, // 1m
+      db: db
     });
   })().catch((e) => {
     logger.error(e);
