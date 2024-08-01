@@ -10,6 +10,8 @@ const { AVA_DISCORD_TOKEN, AVA_ENABLE_REMINDERS } = process.env;
 // Remindme is a special case where we need to pass in the db
 import remindMe from './commands/remindme.js';
 
+logger.info(`Node version: ${process.version}`);
+
 if (!AVA_DISCORD_TOKEN) {
   logger.error('Missing AVA_DISCORD_TOKEN environment variable');
   process.exit(1);
