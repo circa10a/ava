@@ -1,22 +1,21 @@
 {
   "dependencies": {
     "8ball": "^1.0.6",
-    "chrono-node": "^2.7.5",
+    "chrono-node": "^2.7.7",
     "dammit": "^0.5.1",
-    "discord.js": "^14.14.1",
+    "discord.js": "^14.16.3",
     "html-entities": "^2.5.2",
     "image-search-engine": "^1.2.1",
     "lowdb": "^7.0.1",
     "node-fetch": "^3.3.2",
-    "node-html-parser": "^6.1.12",
+    "node-html-parser": "^6.1.13",
     "node-summarizer": "^1.0.7",
     "random-food-emoji": "^2.0.1",
     "snoowrap": "^1.23.0",
     "unfluff": "^3.2.0",
-    "unofficial-amazon-search": "^2.0.8",
     "usetube": "^2.2.7",
     "wikijs": "^6.4.1",
-    "winston": "^3.12.0"
+    "winston": "^3.15.0"
   },
   "name": "ava",
   "version": "1.0.0",
@@ -24,13 +23,13 @@
   "main": "./index.js",
   "type": "module",
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-plugin-unused-imports": "^3.1.0"
+    "eslint": "^9.13.0",
+    "eslint-plugin-unused-imports": "^4.1.4"
   },
   "scripts": {
     "lint": "eslint .",
     "fix-lint": "eslint . --fix",
-    "start": "node ./index.js",
+    "start": "node --no-deprecation ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -41,14 +40,10 @@
     "discord",
     "bot"
   ],
-  "author": "",
+  "author": "circa10a",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/circa10a/ava/issues"
   },
-  "homepage": "https://github.com/circa10a/ava#readme",
-  "engines": {
-    "node": ">=16.6.0",
-    "npm": ">=7.0.0"
-  }
+  "homepage": "https://github.com/circa10a/ava#readme"
 }
