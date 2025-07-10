@@ -5,7 +5,7 @@
 
 A discord implementation of the famous ava bot
 
-<img src="https://i.imgur.com/XbO6CSl.jpg" width="40%" height="40%"/>
+<img src="https://i.imgur.com/XbO6CSl.jpg" width="40%"/>
 
 ## Deploy
 
