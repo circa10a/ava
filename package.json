@@ -1,21 +1,21 @@
 {
   "dependencies": {
     "8ball": "^1.0.6",
-    "chrono-node": "^2.7.7",
+    "chrono-node": "^2.9.0",
     "dammit": "^0.5.1",
-    "discord.js": "^14.17.3",
-    "html-entities": "^2.5.2",
+    "discord.js": "^14.25.1",
+    "html-entities": "^2.6.0",
     "image-search-engine": "^1.2.1",
     "lowdb": "^7.0.1",
     "node-fetch": "^3.3.2",
-    "node-html-parser": "^7.0.1",
+    "node-html-parser": "^7.0.2",
     "node-summarizer": "^1.0.7",
     "random-food-emoji": "^2.0.1",
     "snoowrap": "^1.23.0",
     "unfluff": "^3.2.0",
     "usetube": "^2.2.7",
     "wikijs": "^6.4.1",
-    "winston": "^3.17.0"
+    "winston": "^3.19.0"
   },
   "name": "ava",
   "version": "1.0.0",
@@ -23,8 +23,8 @@
   "main": "./index.js",
   "type": "module",
   "devDependencies": {
-    "eslint": "^9.18.0",
-    "eslint-plugin-unused-imports": "^4.1.4"
+    "eslint": "^10.0.1",
+    "eslint-plugin-unused-imports": "^4.4.1"
   },
   "scripts": {
     "lint": "eslint .",
