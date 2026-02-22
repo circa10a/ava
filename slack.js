@@ -28,6 +28,9 @@ const app = new App({
   socketMode: true,
 });
 
+// Pre-compile regex once
+const avaPrefixRegex = new RegExp(`^${avaPrefix}`, 'i');
+
 const startSlackReminderDaemon = async (opts = {}) => {
   const { db } = opts;
   const checkInterval = 300000; // 5m
@@ -96,7 +99,7 @@ const startSlackReminderDaemon = async (opts = {}) => {
   }
 
   // Listen for messages starting with the ava prefix
-  app.message(new RegExp(`^${avaPrefix}`, 'i'), async ({ message, client }) => {
+  app.message(avaPrefixRegex, async ({ message, client }) => {
     // Ignore bot messages to prevent loops
     if (message.subtype === 'bot_message' || message.bot_id) {
       return;

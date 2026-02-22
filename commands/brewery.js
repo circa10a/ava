@@ -1,4 +1,4 @@
-import { EmbedBuilder, Events } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import fetch from 'node-fetch';
 import { embedColor } from '../config/config.js';
 import { randomItemFromArray, messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
@@ -10,8 +10,6 @@ const beerThumbnail = 'https://i.imgur.com/6ZKnMaw.jpg';
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {

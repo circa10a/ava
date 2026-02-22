@@ -1,4 +1,3 @@
-import { Events } from 'discord.js';
 import { sleep , messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 
 const command = getFileName(import.meta.url);
@@ -7,8 +6,6 @@ const wait = 2000;
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {

@@ -1,4 +1,3 @@
-import { Events } from 'discord.js';
 import { parse } from 'node-html-parser';
 import { randomItemFromArray, messageForAva, getBody, splitArgs, getAllArgsAsStr, getFileName } from '../lib/utils/utils.js';
 
@@ -9,8 +8,6 @@ const itemsHTMLClass ='#schema-lifestyle_1-0';
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {

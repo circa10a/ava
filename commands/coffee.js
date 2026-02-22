@@ -1,5 +1,5 @@
 import { default as wiki } from 'wikijs';
-import { EmbedBuilder, Events } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import { randomItemFromArray, messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 import { embedColor } from '../config/config.js';
 
@@ -7,8 +7,6 @@ const command = getFileName(import.meta.url);
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {

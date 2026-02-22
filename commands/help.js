@@ -1,4 +1,4 @@
-import { EmbedBuilder, Events } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 import * as fs from 'fs';
 import { commandsDir, embedColor } from '../config/config.js';
 import { messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
@@ -10,8 +10,6 @@ const availableCommands = eventFiles.map(event => event.replace('.js', ''));
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute(message) {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {

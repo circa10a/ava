@@ -1,4 +1,3 @@
-import { Events } from 'discord.js';
 import eightball from '8ball';
 import { messageForAva , splitArgs, getAllArgsAsStr, getFileName } from '../lib/utils/utils.js';
 import dammit from 'dammit';
@@ -7,8 +6,6 @@ const command = getFileName(import.meta.url);
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {

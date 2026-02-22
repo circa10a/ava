@@ -1,4 +1,3 @@
-import { Events } from 'discord.js';
 import { decode } from 'html-entities';
 import fetch from 'node-fetch';
 import { messageForAva, splitArgs, getAllArgsAsStr, getFileName } from '../lib/utils/utils.js';
@@ -9,8 +8,6 @@ const insultEndpoint = 'https://evilinsult.com/generate_insult.php?lang=en&type=
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {
