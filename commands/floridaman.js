@@ -1,4 +1,3 @@
-import { Events } from 'discord.js';
 import { messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
 import { getRandomSubmission } from '../lib/reddit/submissions.js';
 
@@ -8,8 +7,6 @@ const subreddit = 'FloridaMan';
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {
@@ -19,7 +16,7 @@ export default {
     const userCmd = args[1];
 
     if (userCmd === command) {
-      let randomSubmission = {};
+      let randomSubmission;
       try{
         randomSubmission = await getRandomSubmission({subreddit});
       } catch(e) {

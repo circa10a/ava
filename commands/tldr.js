@@ -1,4 +1,3 @@
-import { Events } from 'discord.js';
 import {SummarizerManager as summarizerManager} from 'node-summarizer';
 import extractor from 'unfluff';
 import { messageForAva, splitArgs, getBody, stringIsAValidUrl, getFileName } from '../lib/utils/utils.js';
@@ -9,8 +8,6 @@ const command = getFileName(import.meta.url);
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async(message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {

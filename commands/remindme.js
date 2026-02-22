@@ -1,4 +1,3 @@
-import { Events } from 'discord.js';
 import * as chrono from 'chrono-node';
 import { messageForAva, splitArgs, getAllArgsAsStr } from '../lib/utils/utils.js';
 
@@ -7,8 +6,6 @@ const command = 'remindme';
 const remindMe = (opts = {}) => {
   return {
     commandName: command,
-    name: Events.MessageCreate,
-    once: false,
     execute: async(message) => {
     // Ensure message is intended for ava
       if (!messageForAva(message)) {

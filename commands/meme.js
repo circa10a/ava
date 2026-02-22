@@ -1,4 +1,4 @@
-import { EmbedBuilder, Events } from 'discord.js';
+import { EmbedBuilder } from 'discord.js';
 
 import { embedColor } from '../config/config.js';
 import { getRandomSubmissionWithImage } from '../lib/reddit/submissions.js';
@@ -10,8 +10,6 @@ const subreddit = 'dankmemes';
 
 export default {
   commandName: command,
-  name: Events.MessageCreate,
-  once: false,
   execute: async (message) => {
     // Ensure message is intended for ava
     if (!messageForAva(message)) {
@@ -21,7 +19,7 @@ export default {
     const userCmd = args[1];
 
     if (userCmd === command) {
-      let randomSubmission = {};
+      let randomSubmission;
       try {
         randomSubmission = await getRandomSubmissionWithImage({subreddit});
       } catch(e) {
