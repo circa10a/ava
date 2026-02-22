@@ -1,13 +1,10 @@
 {
   "dependencies": {
-    "@eslint/eslintrc": "^3.3.3",
-    "@eslint/js": "^10.0.1",
     "@slack/bolt": "^4.1.1",
     "8ball": "^1.0.6",
     "chrono-node": "^2.9.0",
     "dammit": "^0.5.1",
     "discord.js": "^14.25.1",
-    "globals": "^17.3.0",
     "html-entities": "^2.6.0",
     "image-search-engine": "^1.2.1",
     "lowdb": "^7.0.1",
@@ -27,8 +24,11 @@
   "main": "./index.js",
   "type": "module",
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^10.0.1",
     "eslint": "^10.0.1",
-    "eslint-plugin-unused-imports": "^4.4.1"
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "globals": "^17.3.0"
   },
   "scripts": {
     "lint": "eslint .",
