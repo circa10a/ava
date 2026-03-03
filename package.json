@@ -34,7 +34,6 @@
     "lint": "eslint .",
     "fix-lint": "eslint . --fix",
     "start": "node --no-deprecation ./index.js",
-    "start:slack": "node --no-deprecation ./slack.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

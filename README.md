@@ -13,21 +13,23 @@ A discord and slack implementation of the famous ava bot
 
 ## Usage
 
-### Discord
+Ava starts whichever platforms have tokens configured. Set Discord tokens, Slack tokens, or both to run them simultaneously.
 
 ```bash
+# Discord only
 export AVA_DISCORD_TOKEN=<token>
-npm i
-npm start
-```
 
-### Slack
-
-```bash
+# Slack only
 export AVA_SLACK_BOT_TOKEN=<bot-token>
 export AVA_SLACK_APP_TOKEN=<app-level-token>
+
+# Both platforms simultaneously
+export AVA_DISCORD_TOKEN=<token>
+export AVA_SLACK_BOT_TOKEN=<bot-token>
+export AVA_SLACK_APP_TOKEN=<app-level-token>
+
 npm i
-npm run start:slack
+npm start
 ```
 
 ## Config
@@ -79,16 +81,15 @@ npm run start:slack
 
 ## Docker
 
-### Discord
-
 ```bash
+# Discord only
 docker run -e AVA_DISCORD_TOKEN="<token>" circa10a/ava
-```
 
-### Slack
+# Slack only
+docker run -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-token>" circa10a/ava
 
-```bash
-docker run -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-token>" circa10a/ava npm run start:slack
+# Both platforms simultaneously
+docker run -e AVA_DISCORD_TOKEN="<token>" -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-token>" circa10a/ava
 ```
 
 ## Contribution

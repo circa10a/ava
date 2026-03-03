@@ -56,12 +56,14 @@ docker run -e AVA_DISCORD_TOKEN="<token>" circa10a/ava
 #### Non-Docker
 
 ```shell
+export AVA_DISCORD_TOKEN=<token>
 npm run start
 ```
 
 You should see a message when the server is up and running.
 ```
-[INFO] Ready! Logged in as ...
+[INFO] Discord platform enabled
+[INFO] Discord ready! Logged in as ...
 ```
 
 ### Verify Ava (Discord)
@@ -118,7 +120,7 @@ Invite the bot to a channel by typing `/invite @Ava` in the channel.
 #### Docker
 
 ```shell
-docker run -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-token>" circa10a/ava npm run start:slack
+docker run -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-token>" circa10a/ava
 ```
 
 #### Non-Docker
@@ -126,17 +128,37 @@ docker run -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-tok
 ```shell
 export AVA_SLACK_BOT_TOKEN=<bot-token>
 export AVA_SLACK_APP_TOKEN=<app-token>
-npm run start:slack
+npm run start
 ```
 
 You should see a message when the server is up and running.
 ```
+[INFO] Slack platform enabled
 [INFO] ⚡️ Ava Slack bot is running!
 ```
 
 ### Verify Ava (Slack)
 
 Go to the Slack channel where you invited the bot and type `ava help`. If everything is working correctly, you should see a reply containing all the available Ava commands.
+
+---
+
+## Running Both Platforms Simultaneously
+
+Ava can run Discord and Slack at the same time. Simply provide tokens for both platforms:
+
+```shell
+export AVA_DISCORD_TOKEN=<token>
+export AVA_SLACK_BOT_TOKEN=<bot-token>
+export AVA_SLACK_APP_TOKEN=<app-token>
+npm run start
+```
+
+Or with Docker:
+
+```shell
+docker run -e AVA_DISCORD_TOKEN="<token>" -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-token>" circa10a/ava
+```
 
 ---
 
