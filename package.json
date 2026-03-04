@@ -1,36 +1,33 @@
 {
   "dependencies": {
-    "8ball": "^1.0.6",
+    "@slack/bolt": "^4.6.0",
     "chrono-node": "^2.9.0",
-    "dammit": "^0.5.1",
     "discord.js": "^14.25.1",
     "html-entities": "^2.6.0",
     "image-search-engine": "^1.2.1",
     "lowdb": "^7.0.1",
-    "node-fetch": "^3.3.2",
-    "node-html-parser": "^7.0.2",
-    "node-summarizer": "^1.0.7",
-    "random-food-emoji": "^2.0.1",
-    "snoowrap": "^1.23.0",
-    "unfluff": "^3.2.0",
+    "node-html-parser": "^7.1.0",
     "usetube": "^2.2.7",
     "wikijs": "^6.4.1",
     "winston": "^3.19.0"
   },
   "name": "ava",
   "version": "1.0.0",
-  "description": "OSS Ava discord bot",
+  "description": "OSS Ava discord and slack bot",
   "main": "./index.js",
   "type": "module",
   "devDependencies": {
-    "eslint": "^10.0.1",
-    "eslint-plugin-unused-imports": "^4.4.1"
+    "@eslint/eslintrc": "^3.3.4",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "globals": "^17.4.0"
   },
   "scripts": {
     "lint": "eslint .",
     "fix-lint": "eslint . --fix",
     "start": "node --no-deprecation ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test test/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +35,7 @@
   },
   "keywords": [
     "discord",
+    "slack",
     "bot"
   ],
   "author": "circa10a",

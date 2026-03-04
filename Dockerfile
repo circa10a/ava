@@ -1,6 +1,7 @@
-FROM node
+FROM node:alpine
 ENV NODE_ENV=production
 WORKDIR /usr/src/app
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 COPY . .
-RUN npm install
-CMD ["npm", "start"]
+CMD ["node", "--no-deprecation", "./index.js"]
