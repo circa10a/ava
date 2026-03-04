@@ -8,6 +8,7 @@ import { startDiscord } from './lib/platforms/discord.js';
 import { startSlack } from './lib/platforms/slack.js';
 
 import remindMe from './commands/remindme.js';
+import help from './commands/help.js';
 
 const { AVA_DISCORD_TOKEN, AVA_SLACK_BOT_TOKEN, AVA_SLACK_APP_TOKEN, AVA_ENABLE_REMINDERS } = process.env;
 
@@ -24,11 +25,17 @@ if (!discordEnabled && !slackEnabled) {
 (async () => {
   // Dynamic imports of modules/commands so that we don't need to statically define them.
   const commands = [];
-  const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js') && !file.startsWith('remindme'));
+  const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js') && !file.startsWith('remindme') && !file.startsWith('help'));
   for (const file of eventFiles) {
     const module = await import(`./${commandsDir}/${file}`);
     commands.push(module.default);
   }
+
+  // Compute available command names and inject into help
+  const availableCommands = commands.map(c => c.commandName);
+  availableCommands.push('help', 'remindme');
+  availableCommands.sort();
+  commands.push(help({ availableCommands }));
 
   let db = null;
   if (AVA_ENABLE_REMINDERS) {

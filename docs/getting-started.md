@@ -6,7 +6,7 @@ In this guide, you will start a local server instance of Ava for either Discord 
 
 ## Prerequisites
 
-* [Node.js](https://nodejs.org/en/) v16 or greater
+* [Node.js](https://nodejs.org/en/) v18 or greater
 * [Docker](https://www.docker.com/products/docker-desktop) (optional)
 * A [Discord](https://discord.com/) account **or** a [Slack](https://slack.com/) workspace
 
@@ -98,6 +98,10 @@ Go to **OAuth & Permissions** and add the following **Bot Token Scopes**:
 - `im:history` — Read direct messages
 - `mpim:history` — Read group direct messages
 
+### Signing Secret (Optional)
+
+If you want request verification, copy the **Signing Secret** from your app's **Basic Information** page and set it as `AVA_SLACK_SIGNING_SECRET`. This is optional when using Socket Mode.
+
 ### Enable Event Subscriptions
 
 Go to **Event Subscriptions** and enable events. Under **Subscribe to bot events**, add:
@@ -165,3 +169,10 @@ docker run -e AVA_DISCORD_TOKEN="<token>" -e AVA_SLACK_BOT_TOKEN="<bot-token>" -
 ## Closing
 
 If Ava returned all the commands then congratulations. You now have a local test server and an Ava test bot to verify new commands.
+
+Before submitting a PR, run the test suite:
+
+```shell
+npm run lint
+npm test
+```

@@ -1,24 +1,13 @@
 import { EmbedBuilder } from 'discord.js';
-import * as fs from 'fs';
-import { commandsDir, embedColor } from '../config/config.js';
-import { messageForAva, splitArgs, getFileName } from '../lib/utils/utils.js';
+import { embedColor } from '../config/config.js';
 
-const command = getFileName(import.meta.url);
+const command = 'help';
 
-const eventFiles = fs.readdirSync(`./${commandsDir}`).filter(file => file.endsWith('.js'));
-const availableCommands = eventFiles.map(event => event.replace('.js', ''));
-
-export default {
-  commandName: command,
-  execute(message) {
-    // Ensure message is intended for ava
-    if (!messageForAva(message)) {
-      return;
-    }
-    const args = splitArgs(message);
-    const userCmd = args[1];
-
-    if (userCmd === command) {
+const help = (opts = {}) => {
+  return {
+    commandName: command,
+    execute(message) {
+      const { availableCommands = [] } = opts;
       const embed = new EmbedBuilder()
         .setColor(embedColor)
         .setTitle('Available Commands')
@@ -27,6 +16,8 @@ export default {
         .setThumbnail('https://i.imgur.com/XbO6CSl.jpg');
 
       message.channel.send({ embeds: [embed] });
-    }
-  },
+    },
+  };
 };
+
+export default help;
