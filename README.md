@@ -3,7 +3,7 @@
 [![alt text](https://img.shields.io/badge/Invite%20To-Discord%20-blue)](https://discord.com/api/oauth2/authorize?client_id=876487225716662302&permissions=34359863296&scope=bot)
 ![Build Status](https://github.com/circa10a/ava/workflows/publish/badge.svg)
 
-A discord implementation of the famous ava bot
+A discord and slack implementation of the famous ava bot
 
 <img src="https://i.imgur.com/XbO6CSl.jpg" width="40%"/>
 
@@ -13,8 +13,21 @@ A discord implementation of the famous ava bot
 
 ## Usage
 
+Ava starts whichever platforms have tokens configured. Set Discord tokens, Slack tokens, or both to run them simultaneously.
+
 ```bash
+# Discord only
 export AVA_DISCORD_TOKEN=<token>
+
+# Slack only
+export AVA_SLACK_BOT_TOKEN=<bot-token>
+export AVA_SLACK_APP_TOKEN=<app-level-token>
+
+# Both platforms simultaneously
+export AVA_DISCORD_TOKEN=<token>
+export AVA_SLACK_BOT_TOKEN=<bot-token>
+export AVA_SLACK_APP_TOKEN=<app-level-token>
+
 npm i
 npm start
 ```
@@ -24,13 +37,12 @@ npm start
 |                            |          |         |
 |----------------------------|----------|---------|
 | Environment Variable       | Required | Default |
-| `AVA_DISCORD_TOKEN`        | Yes      | `""`    |
+| `AVA_DISCORD_TOKEN`        | Yes (Discord) | `""`    |
+| `AVA_SLACK_BOT_TOKEN`      | Yes (Slack)   | `""`    |
+| `AVA_SLACK_APP_TOKEN`      | Yes (Slack)   | `""`    |
+| `AVA_SLACK_SIGNING_SECRET` | No       | `""`    |
 | `AVA_DB_DIR`               | No       | `./`    |
 | `AVA_ENABLE_REMINDERS`     | No       | `false` |
-| `AVA_REDDIT_CLIENT_ID`     | No       | `""`    |
-| `AVA_REDDIT_CLIENT_SECRET` | No       | `""`    |
-| `AVA_REDDIT_USERNAME`      | No       | `""`    |
-| `AVA_REDDIT_PASSWORD`      | No       | `""`    |
 
 ## Commands
 
@@ -66,7 +78,14 @@ npm start
 ## Docker
 
 ```bash
+# Discord only
 docker run -e AVA_DISCORD_TOKEN="<token>" circa10a/ava
+
+# Slack only
+docker run -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-token>" circa10a/ava
+
+# Both platforms simultaneously
+docker run -e AVA_DISCORD_TOKEN="<token>" -e AVA_SLACK_BOT_TOKEN="<bot-token>" -e AVA_SLACK_APP_TOKEN="<app-token>" circa10a/ava
 ```
 
 ## Contribution
